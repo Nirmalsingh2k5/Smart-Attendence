@@ -1,55 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Attendence</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendance</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f7f9fc;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: #e2e8f0;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+    }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #1e293b;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      padding: 25px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Media */
+    video, img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Buttons */
+    button {
+      background: #2563eb;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Smart Attendence</h1>
-            <a href="#">Home</a>
-            <a href="#">About us</a>
-            <a href="#">How to use page</a>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>Smart Attendance</h1>
+    </nav>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">How to Use</a>
+    </div>
+  </header>
 
-    <div class="hero">
-        <h2>Welcome to Smart Attendance System</h2>
-    <p>Track attendance with Face Detection, Classroom Capture, and CSV Export.</p>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2>Welcome to Smart Attendance System</h2>
+    <p>AI-powered attendance tracking with face detection & classroom insights.</p>
     <p id="dateandtime"></p>
-    </div>
+  </div>
 
-    <div class="section">
-        <h2>Face Detection</h2>
-        <div class="card">
-            <p>use your webcam to detect faces and mark attendence</p>
-            <video id="btn" height="300px"></video>
-            <button onclick="startcamera()">start camera</button>
-        </div>
+  <!-- Camera Section -->
+  <div class="section">
+    <h2>Face Detection</h2>
+    <div class="card">
+      <p>Use your webcam to detect faces and mark attendance</p>
+      <video id="video" height="300" autoplay></video>
+      <button onclick="startCamera()">Start Camera</button>
     </div>
+  </div>
 
-    <div class="here">
-        <h2>Classroom Photo Upload</h2>
-           <div class="card">
+  <!-- Photo Upload Section -->
+  <div class="section">
+    <h2>Classroom Photo Upload</h2>
+    <div class="card">
       <input type="file" id="photoUpload" accept="image/*">
-      <p>Uploaded Photo Preview:</p>
+      <p style="margin-top:15px;">Uploaded Photo Preview:</p>
       <img id="preview" src="" alt="Classroom Photo">
     </div>
-    </div>
+  </div>
 
-    <div class="section">
-        <h2>Today's Summary</h2>
-        <div class="card">Total Student:50</div>
-        <div class="card">Present Student:39</div>
-        <div class="card">Absent Student:11</div>
-        <button onclick="exportCSV()">Export Attendance (CSV)</button>
-    </div>
-    <footer>
-        &copy;2025 Smart Attendence |Designed By team Smart Attendance
-    </footer>
+  <!-- Summary Section -->
+  <div class="section">
+    <h2>Today's Summary</h2>
+    <div class="card">📊 Total Students: <strong>50</strong></div>
+    <div class="card">✅ Present Students: <strong>39</strong></div>
+    <div class="card">❌ Absent Students: <strong>11</strong></div>
+    <button onclick="exportCSV()">📥 Export Attendance (CSV)</button>
+  </div>
 
-    
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Smart Attendance | Designed by Team Smart Attendance
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Show date and time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('dateandtime').innerText = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+
+    // Start camera
+    function startCamera() {
+      const video = document.getElementById('video');
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => { video.srcObject = stream; })
+        .catch(err => { alert("Error accessing camera: " + err); });
+    }
+
+    // Preview uploaded photo
+    document.getElementById('photoUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.getElementById('preview').src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Export attendance data as CSV
+    function exportCSV() {
+      const rows = [
+        ["Total Students", "Present", "Absent"],
+        [50, 39, 11]
+      ];
+      let csvContent = "data:text/csv;charset=utf-8," 
+        + rows.map(e => e.join(",")).join("\n");
+
+      const link = document.createElement("a");
+      link.setAttribute("href", csvContent);
+      link.setAttribute("download", "attendance.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </body>
 </html>
