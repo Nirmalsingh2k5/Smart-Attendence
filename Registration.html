@@ -1,42 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UForm-groupTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Attendenc</title>
-    <link rel="stylesheet" href="style2.css" />
-    <link rel="icon" type="image/png" href="tab4.png">  
-  </head>
-  <body>
-        <nav class="nav-bar">
-            <div class="logo">
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Register - Smart Attendance</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://kit.fontawesome.com/a2e0f1f0c3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <i class="fas fa-user-plus" style="color:#60a5fa"></i>
+      <h1>Register</h1>
+    </div>
+    <div class="links">
+      <a href="login.html">Back to Login</a>
+    </div>
+  </header>
 
-            </div>   
-        </nav>
-    <div class="form-container">
-      <h2>Register yourself</h2>
-      <div class="Form-group">
-        <label for="name">Enter Your Full Name:</label>
-        <input type="text" id="fullname" name="fullname" placeholder="Full Name" required >
+  <div class="container center">
+    <div class="card">
+      <div class="tabs" id="roleTabs">
+        <div class="tab" data-role="teacher" id="tab-teacher">Teacher</div>
+        <div class="tab" data-role="student" id="tab-student">Student</div>
       </div>
-      <br />
-      <div class="Form-group">
-        <label for="Email">Enter Your ID/Emial:</label>
-        <input type="text" id="email" name="email" placeholder="Enter Your Id/E-Mail" required >
-      </div>
-      <br />
-      <div class="Form-group">
-        <label for="Password">Set your Password:</label>
-        <input type="password" id="password" name="password" placeholder="password" required >
-      </div>
-      <br />
-      <div class="Form-group">
-  <label for="otp">Enter OTP:</label>
-  <input type="text" id="otp" placeholder="OTP">
-  <small>Check your Mail Box For OTP</small>
-  <button type="submit">Register</button>
-</div>
-  </body>
 
+      <!-- Teacher form -->
+      <div id="form-teacher" class="form-section">
+        <h3>Register as Teacher</h3>
+        <form id="teacherForm">
+          <label>Full Name</label><input type="text" id="tname" required>
+          <label class="mt-12">Email</label><input type="email" id="temail" required>
+          <label class="mt-12">Password</label><input type="password" id="tpass" required>
+          <div class="mt-12 right">
+            <button class="btn" type="submit"><i class="fas fa-user-plus"></i> Register Teacher</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Student form -->
+      <div id="form-student" class="form-section" style="display:none">
+        <h3>Register as Student</h3>
+        <form id="studentForm">
+          <label>Full Name</label><input type="text" id="sname" required>
+          <label class="mt-12">Email</label><input type="email" id="semail" required>
+          <label class="mt-12">Password</label><input type="password" id="spass" required>
+          <div class="mt-12 right">
+            <button class="btn" type="submit"><i class="fas fa-user-plus"></i> Register Student</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Tab logic */
+const tabTeacher = document.getElementById('tab-teacher');
+const tabStudent = document.getElementById('tab-student');
+const fTeacher = document.getElementById('form-teacher');
+const fStudent = document.getElementById('form-student');
+
+function setTab(role){
+  if(role==='teacher'){
+    tabTeacher.classList.add('active'); tabStudent.classList.remove('active');
+    fTeacher.style.display='block'; fStudent.style.display='none';
+  } else {
+    tabStudent.classList.add('active'); tabTeacher.classList.remove('active');
+    fStudent.style.display='block'; fTeacher.style.display='none';
+  }
+}
+tabTeacher.onclick = ()=>setTab('teacher');
+tabStudent.onclick = ()=>setTab('student');
+
+/* Auto open by query ?role=teacher */
+const params = new URLSearchParams(location.search);
+const roleParam = (params.get('role')||'').toLowerCase();
+if(roleParam==='student') setTab('student'); else setTab('teacher');
+
+/* Storage helpers */
+function getUsers(){ return JSON.parse(localStorage.getItem('users')||'[]') }
+function saveUsers(list){ localStorage.setItem('users', JSON.stringify(list)) }
+function emailExists(email){ return getUsers().some(u=>u.email.toLowerCase()===email.toLowerCase()) }
+
+/* Teacher registration */
+document.getElementById('teacherForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('tname').value.trim();
+  const email = document.getElementById('temail').value.trim();
+  const pass = document.getElementById('tpass').value;
+  if(emailExists(email)){ alert('Email already exists. Try logging in.'); return; }
+  const users = getUsers();
+  users.push({ id:Date.now(), role:'teacher', name, email, password:pass });
+  saveUsers(users);
+  alert('Teacher registered successfully. Please login.');
+  location.href = 'login.html';
+});
+
+/* Student registration */
+document.getElementById('studentForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('sname').value.trim();
+  const email = document.getElementById('semail').value.trim();
+  const pass = document.getElementById('spass').value;
+  if(emailExists(email)){ alert('Email already exists. Try logging in.'); return; }
+  const users = getUsers();
+  users.push({ id:Date.now(), role:'student', name, email, password:pass });
+  saveUsers(users);
+  alert('Student registered successfully. Please login.');
+  location.href = 'login.html';
+});
+</script>
+</body>
 </html>
-
