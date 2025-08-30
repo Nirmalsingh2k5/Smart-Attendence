@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Attendance</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/a2e0f1f0c3.js" crossorigin="anonymous"></script>
+
   <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
+    /* Global */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #f7f9fc;
-      color: #2c3e50;
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
       line-height: 1.6;
     }
 
@@ -26,56 +28,50 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     nav h1 {
-      margin: 0;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: .5px;
     }
     nav a {
-      color: #e2e8f0;
+      color: #cbd5e1;
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s;
+      transition: .3s;
     }
-    nav a:hover {
-      color: #38bdf8;
-    }
+    nav a:hover { color: #38bdf8; }
 
     /* Hero */
     .hero {
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
       color: white;
+      animation: fadeIn 1s ease-in;
     }
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+    .hero h2 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+    .hero p { font-size: 18px; margin-bottom: 8px; }
 
     /* Sections */
     .section {
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
+      animation: fadeUp 1s ease-in;
     }
     .section h2 {
       font-size: 28px;
       margin-bottom: 30px;
       color: #1e293b;
+      font-weight: 600;
     }
 
-    /* Cards */
+    /* Card Layout */
     .card {
       background: white;
       padding: 25px;
@@ -83,7 +79,7 @@
       max-width: 600px;
       border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform .3s ease, box-shadow .3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -109,10 +105,31 @@
       font-size: 16px;
       font-weight: 600;
       transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    button:hover {
-      background: #1d4ed8;
+    button:hover { background: #1d4ed8; }
+
+    /* Grid for Summary */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
+    .summary-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-weight: 600;
+      font-size: 18px;
+      transition: transform .3s;
+    }
+    .summary-card:hover { transform: scale(1.05); }
+    .summary-card i { margin-right: 8px; }
 
     /* Footer */
     footer {
@@ -120,8 +137,18 @@
       color: #94a3b8;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -129,7 +156,7 @@
   <!-- Navbar -->
   <header>
     <nav>
-      <h1>Smart Attendance</h1>
+      <h1><i class="fas fa-check-circle"></i> Smart Attendance</h1>
     </nav>
     <div>
       <a href="#">Home</a>
@@ -147,17 +174,17 @@
 
   <!-- Camera Section -->
   <div class="section">
-    <h2>Face Detection</h2>
+    <h2><i class="fas fa-video"></i> Face Detection</h2>
     <div class="card">
       <p>Use your webcam to detect faces and mark attendance</p>
       <video id="video" height="300" autoplay></video>
-      <button onclick="startCamera()">Start Camera</button>
+      <button onclick="startCamera()"><i class="fas fa-camera"></i> Start Camera</button>
     </div>
   </div>
 
   <!-- Photo Upload Section -->
   <div class="section">
-    <h2>Classroom Photo Upload</h2>
+    <h2><i class="fas fa-image"></i> Classroom Photo Upload</h2>
     <div class="card">
       <input type="file" id="photoUpload" accept="image/*">
       <p style="margin-top:15px;">Uploaded Photo Preview:</p>
@@ -167,11 +194,14 @@
 
   <!-- Summary Section -->
   <div class="section">
-    <h2>Today's Summary</h2>
-    <div class="card">📊 Total Students: <strong>50</strong></div>
-    <div class="card">✅ Present Students: <strong>39</strong></div>
-    <div class="card">❌ Absent Students: <strong>11</strong></div>
-    <button onclick="exportCSV()">📥 Export Attendance (CSV)</button>
+    <h2><i class="fas fa-chart-bar"></i> Today's Summary</h2>
+    <div class="summary-grid">
+      <div class="summary-card"><i class="fas fa-users"></i> Total Students: <strong>50</strong></div>
+      <div class="summary-card"><i class="fas fa-user-check"></i> Present: <strong>39</strong></div>
+      <div class="summary-card"><i class="fas fa-user-times"></i> Absent: <strong>11</strong></div>
+    </div>
+    <br>
+    <button onclick="exportCSV()"><i class="fas fa-download"></i> Export Attendance (CSV)</button>
   </div>
 
   <!-- Footer -->
