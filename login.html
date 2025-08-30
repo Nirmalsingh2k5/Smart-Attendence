@@ -1,1 +1,54 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Smart Attendence</title> </head> <body> <header> <nav> <h1>Smart Attendence</h1> <a href="#">Home</a> <a href="#">About us</a> <a href="#">How to use page</a> </nav> </header> <div class="hero"> <h2>Welcome to Smart Attendance System</h2> <p>Track attendance with Face Detection, Classroom Capture, and CSV Export.</p> <p id="dateandtime"></p> </div> <div class="section"> <h2>Face Detection</h2> <div class="card"> <p>use your webcam to detect faces and mark attendence</p> <video id="btn" height="300px"></video> <button onclick="startcamera()">start camera</button> </div> </div> <div class="here"> <h2>Classroom Photo Upload</h2> <div class="card"> <input type="file" id="photoUpload" accept="image/*"> <p>Uploaded Photo Preview:</p> <img id="preview" src="" alt="Classroom Photo"> </div> </div> <div class="section"> <h2>Today's Summary</h2> <div class="card">Total Student:50</div> <div class="card">Present Student:39</div> <div class="card">Absent Student:11</div> <button onclick="exportCSV()">Export Attendance (CSV)</button> </div> <footer> &copy;2025 Smart Attendence |Designed By team Smart Attendance </footer> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendence</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Smart Attendence</h1>
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">How to use page</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Welcome to Smart Attendance System</h2>
+    <p>Track attendance with Face Detection, Classroom Capture, and CSV Export.</p>
+    <p id="dateandtime"></p>
+  </div>
+
+  <div class="section">
+    <h2>Face Detection</h2>
+    <div class="card">
+      <p>Use your webcam to detect faces and mark attendance</p>
+      <video id="btn" height="300px"></video>
+      <button onclick="startcamera()">Start Camera</button>
+    </div>
+  </div>
+
+  <div class="here">
+    <h2>Classroom Photo Upload</h2>
+    <div class="card">
+      <input type="file" id="photoUpload" accept="image/*">
+      <p>Uploaded Photo Preview:</p>
+      <img id="preview" src="" alt="Classroom Photo">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Today's Summary</h2>
+    <div class="card">Total Student: 50</div>
+    <div class="card">Present Student: 39</div>
+    <div class="card">Absent Student: 11</div>
+    <button onclick="exportCSV()">Export Attendance (CSV)</button>
+  </div>
+
+  <footer>
+    &copy;2025 Smart Attendence | Designed By Team Smart Attendance
+  </footer>
+</body>
+</html>
