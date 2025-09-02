@@ -1,0 +1,447 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+header {
+  background: #1e293b; /* dark navy */
+  height: 60px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile section */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #38bdf8; /* cyan border */
+  object-fit: cover;
+}
+
+.profile span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* .sidebar {
+  background-color: #1e293b;
+  height: 400px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+} */
+
+.sidebar {
+  position: fixed; /* keep it fixed while scrolling */
+  top: 61px;
+  left: 0; /* stick to the left */
+  width: 250px; /* set sidebar width */
+  height: 100%; /* full height */
+  background: #1e293b; /* dark background */
+  color: white;
+  /* padding: 20px; */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.padding {
+  margin-top: 500px;
+  display: flex;
+  align-items: self-end;
+}
+.sidebar a:hover {
+  color: gray; /* hover effect */
+  /* border: 1px solid white; */
+  background-color: #0f172a;
+  border-radius: 8px;
+}
+
+.dashboardSection {
+  background-color: #1b2434;
+  position: relative;
+  top: 70px;
+  left: 100px;
+  width: 70%;
+  border-radius: 10px;
+}
+
+h1 {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.timestamp p {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  background-color: #1e293b;
+  padding: 3px;
+}
+
+.Attendance {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.total-student {
+  background-color: #121823;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: 25px 45px 35px 45px;
+  /* margin-left: 100px; */
+  border-radius: 8px;
+}
+
+.today-attendance {
+  text-align: center;
+  background-color: #121823;
+  padding: 25px 45px 35px 45px;
+  border-radius: 8px;
+}
+
+.attendance-box { 
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 30px; /* space between Present and Absent */
+  margin-top: 10px;
+}
+
+.attendance-item {
+  display: flex;
+  flex-direction: column; /* label on top, number below */
+  align-items: center;
+}
+
+.num {
+  border: 3px solid;
+  border-radius: 50%;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.num-present {
+  border-color: green;
+  color: green;
+}
+
+.num-absent {
+  border-color: red;
+  color: red;
+}
+
+.Low-attendance {
+  background-color: #121823;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: 25px 45px 35px 45px;
+  /* margin-left: 100px; */
+  border-radius: 8px;
+}
+
+.today-attendance span {
+  display: flex;
+}
+
+.num {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px auto;
+  border: 6px solid transparent; /* default */
+}
+
+/* Different border colors for each */
+.num-total {
+  border-color: #4CAF50; /* Green */
+}
+
+.num-present {
+  border-color: #2196F3; /* Blue */
+}
+
+.num-absent {
+  border-color: #f9493dec; /* Red */
+}
+
+.num-low {
+  border-color: red; /* Orange */
+}
+
+/* ---Camra section --- */
+
+.camera-upload {
+  margin: 50px 200px 50px 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.camera-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.camera-btn:hover {
+  background: #1d4ed8;
+}
+
+#cameraInput {
+  display: none; /* hide default file input */
+}
+
+
+
+
+/* ---------- For Tablets (like iPad) ---------- */
+@media (max-width: 1024px) {
+  .dashboardSection {
+    left: 80px;
+    width: 80%;
+  }
+
+  .Attendance {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+  }
+
+  .total-student,
+  .today-attendance,
+  .Low-attendance {
+    margin: 10px 0;
+    width: 90%;
+  }
+}
+
+/* ---------- For Mobile Phones (landscape & portrait) ---------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .profile span {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 200px;
+    font-size: 14px;
+  }
+
+  .dashboardSection {
+    top: 70px;
+    left: 220px;
+    width: calc(100% - 220px);
+    padding: 10px;
+  }
+
+  .Attendance {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .camera-upload {
+    margin: 20px;
+  }
+
+  .num {
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+  }
+}
+
+/* ---------- For Small Phones (iPhone SE, etc.) ---------- */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .sidebar a {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .dashboardSection {
+    position: relative;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .Attendance {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .num {
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+  .dashboardSection {
+    width: 85%;
+    left: 70px;
+  }
+  .sidebar {
+    width: 200px;
+  }
+  .Attendance {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+/* Phones (landscape + portrait) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .sidebar {
+    position: relative; /* stack on top instead of fixed */
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    flex-direction: row;
+    overflow-x: auto; /* scroll if too many items */
+  }
+
+  .sidebar a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .dashboardSection {
+    width: 100%;
+    left: 0;
+    top: 10px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .Attendance {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .total-student,
+  .today-attendance,
+  .Low-attendance {
+    width: 90%;
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .camera-upload {
+    margin: 20px auto;
+    width: 90%;
+  }
+}
+
+/* Small phones (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .num {
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .camera-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+
+
+
