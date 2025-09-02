@@ -102,7 +102,7 @@ body {
   width: 100%;
   padding: 10px;
   background: linear-gradient(90deg, #7f5af0, #00d4ff);
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -110,8 +110,8 @@ body {
 }
 
 .btn:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .form-group a:hover {
-    color: cyan;
+    color: white;
 }
