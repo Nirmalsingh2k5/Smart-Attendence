@@ -244,7 +244,6 @@ h1 {
 
 
 
-
 /* ---------- For Tablets (like iPad) ---------- */
 @media (max-width: 1024px) {
   .dashboardSection {
@@ -350,7 +349,6 @@ h1 {
   }
 }
 
-
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Tablets and smaller laptops */
@@ -441,6 +439,7 @@ h1 {
     font-size: 14px;
   }
 }
+
 
 
 

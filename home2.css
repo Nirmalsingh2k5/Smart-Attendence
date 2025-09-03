@@ -1,0 +1,155 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c9cdd5b0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Navbar {
+  background: linear-gradient(90deg, #7f5af0, #00d4ff);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  color: white;
+}
+
+/* Main section: logo left, login right */
+/* Main section: logo left, login right */
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px; /* space between logo & card */
+  padding: 40px;
+  height: calc(100vh - 60px); /* full height minus navbar */
+}
+
+/* Logo left */
+.sitelogo {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* push logo toward center */
+  align-items: center;
+}
+
+.sitelogo img {
+  max-width: 320px;
+  height: auto;
+}
+
+/* Login box right */
+.container-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  background-color: #c9cdd5b0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  width: 100%;
+  
+}
+
+
+/* Responsive: stack logo above boxes on small screens */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* reduce space */
+    height: auto;
+    padding: 20px;
+  }
+
+  .sitelogo {
+    justify-content: center;
+  }
+
+  .sitelogo img {
+    max-width: 180px; /* shrink logo */
+    height: auto;
+  }
+
+  .container-card {
+    max-width: 100%;
+    width: 90%;
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
+
+/* ================== BOXES ================= */
+.btn-container {
+  background-color: #e7eaf0;
+  border-radius: 12px;
+  padding: 25px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* margin-top: 25px; */
+}
+
+.btn-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+#h2, #h22 {
+  color: rgb(0, 7, 7);
+  margin-bottom: 10px;
+}
+
+.btn-container p {
+  font-size: 1rem;
+  color: rgb(5, 5, 5);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-container:nth-child(1) .btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-container:nth-child(1) .btn:hover {
+  background-color: #a31616;
+  transform: scale(1.05);
+}
+
+.btn-container:nth-child(2) .btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-container:nth-child(2) .btn:hover {
+  background-color: #a31616;
+  transform: scale(1.05);
+}
