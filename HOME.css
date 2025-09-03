@@ -1,117 +1,102 @@
-
-/* ================= GLOBAL ================= */
+* ================= GLOBAL ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a;
-
-  
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    /* A new dark, techy background color */
+    background-color: #0c0c14;
+    overflow: hidden;
+    position: relative; /* This is crucial for the ::before pseudo-element */
 }
 
-.Navbar {
-    background: linear-gradient(90deg, #7f5af0, #00d4ff);
-    height: 60px;
+/* ================= ANIMATED GRID BACKGROUND ================= */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the content */
+
+    /* Create the grid using two repeating gradients */
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255, 255, 255, 0.1) 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255, 255, 255, 0.1) 50px);
+    
+    background-size: 50px 50px; /* Size of the grid squares */
+    
+    /* The animation call */
+    animation: moveGrid 30s linear infinite;
 }
 
-.sitelogo {
-    display: inline-block;
-    padding: 30px;
+@keyframes moveGrid {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        /* Move the background position to create the animation */
+        background-position: 500px 500px;
+    }
 }
 
-#h2 {
-  color: aqua;
-}
 
-#h22 {
-  color: aqua;
-}
-
+/* ================= LOGIN CARD STYLING ================= */
+/* This ensures your login buttons are on top of the background animation */
 .container-card {
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: end;
-  align-items: center;
-  gap: 30px;
-  padding: 30px;
-  background-color: #1e293b;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  /* width: 100%; */
+    display: flex;
+    gap: 30px;
+    z-index: 10; /* Make sure this is on top of the grid */
 }
-
-@media (min-width: 768px) {
-  .container-card {
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 50px;
-  }
-}
-
-
 
 .btn-container {
-  background-color: #0f172a;
-  border-radius: 12px;
-  padding: 30px;
-  flex: 1;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(0, 0, 0, 0.2); /* Darker glass for this background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-container:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-container h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 10px;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
 .btn-container p {
-  font-size: 1rem;
-  color: white;
-  margin-bottom: 25px;
-  line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 25px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #5f27cd; /* Purple button to match the tech theme */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.btn-container:nth-child(1) .btn {
-  background-color: #3b82f6;
-  color: #ffffff;
+.btn:hover {
+    background-color: #7a42f4;
 }
 
-.btn-container:nth-child(1) .btn:hover {
-  background-color: #2563eb;
-  transform: scale(1.05);
-}
 
-.btn-container:nth-child(2) .btn {
-  background-color: #22c55e;
-  color: #ffffff;
-}
 
-.btn-container:nth-child(2) .btn:hover {
-  background-color: #16a34a;
-  transform: scale(1.05);
-}
