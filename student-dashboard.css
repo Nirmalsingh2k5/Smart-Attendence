@@ -1,33 +1,36 @@
-/* ===== Global Reset ===== */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
   background-color: #0f172a;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: white;
+  min-height: 100vh;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 header {
   background: #1e293b;
   height: 60px;
   width: 100%;
-  color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px 30px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  padding: 0 25px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.4);
 }
 
-/* Profile */
+header h1 {
+  font-size: 18px;
+  color: #38bdf8;
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -47,35 +50,34 @@ header {
   font-weight: bold;
 }
 
-/* ===== Sidebar ===== */
+/* ===== SIDEBAR ===== */
 .sidebar {
   position: fixed;
   top: 61px;
   left: 0;
-  width: 250px;
+  width: 230px;
   height: 100%;
   background: #1e293b;
-  color: white;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  padding-top: 20px;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
 }
 
 .sidebar h2 {
-  margin: 20px 0;
+  font-size: 18px;
+  margin-bottom: 15px;
   padding-left: 15px;
+  color: #38bdf8;
 }
 
 .sidebar a {
+  padding: 12px 15px;
   text-decoration: none;
-  color: #ffffff;
-  margin: 5px;
-  padding: 10px;
-  cursor: pointer;
+  color: #fff;
   border-radius: 6px;
-  transition: background 0.3s;
+  margin: 3px 10px;
+  transition: all 0.3s ease;
 }
 
 .sidebar a:hover {
@@ -83,52 +85,63 @@ header {
   color: #38bdf8;
 }
 
-/* ===== Main Dashboard Section ===== */
-.dashboardSection {
-  background-color: #1b2434;
-  position: relative;
-  top: 70px;
-  left: 270px;
-  width: 70%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-}
-
-h1 {
-  padding-left: 20px;
-  padding-top: 20px;
-}
-
-/* ===== Attendance Section ===== */
-.Attendance {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  flex-wrap: wrap;
+/* ===== MAIN DASHBOARD ===== */
+.dashboard {
+  margin-left: 250px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
-.total-class,
-.my-attendance,
-.attendance-percentage {
-  background-color: #121823;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  padding: 25px 40px;
-  border-radius: 8px;
+/* ===== CARDS ===== */
+.card {
+  background: #1b2434;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  border-left: 5px solid #38bdf8;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card li {
+  margin: 10px 0;
+}
+
+.card a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ATTENDANCE ===== */
+.attendance-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stat {
   text-align: center;
 }
 
-.attendance-box {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 10px;
-}
-
-.attendance-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.stat span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .num {
@@ -138,125 +151,68 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
-  margin: 10px auto;
-  border: 6px solid transparent;
+  margin: auto;
+  border: 5px solid;
 }
 
-.num-total {
+.total {
   border-color: #4CAF50;
+  color: #4CAF50;
 }
 
-.num-present {
+.present {
   border-color: #2196F3;
   color: #2196F3;
 }
 
-.num-absent {
-  border-color: #f9493d;
-  color: #f9493d;
+.absent {
+  border-color: #f43f5e;
+  color: #f43f5e;
 }
 
-.num-percent {
+.percent {
   border-color: #fbbf24;
   color: #fbbf24;
 }
 
-/* ===== Notes & Syllabus ===== */
-.notes,
-.syllabus,
-.announcements {
-  margin: 30px 20px;
-  padding: 20px;
-  background: #121823;
-  border-radius: 8px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-}
-
-.notes h2,
-.syllabus h2,
-.announcements h2 {
-  margin-bottom: 15px;
-  border-left: 5px solid #38bdf8;
-  padding-left: 10px;
-}
-
-.notes ul,
-.syllabus ul,
-.announcements ul {
-  list-style: none;
-  margin-left: 10px;
-}
-
-.notes li,
-.syllabus li,
-.announcements li {
-  margin: 10px 0;
-}
-
-.notes a,
-.syllabus a {
-  color: #38bdf8;
-  text-decoration: none;
-}
-
-.notes a:hover,
-.syllabus a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive Design ===== */
-
-/* Tablets */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .dashboardSection {
-    left: 220px;
-    width: 75%;
+  .dashboard {
+    margin-left: 220px;
   }
   .sidebar {
     width: 200px;
   }
 }
 
-/* Phones */
 @media (max-width: 768px) {
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
     flex-direction: row;
-    overflow-x: auto;
-    border-radius: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
   }
-  .sidebar a {
-    flex: 1;
-    text-align: center;
-    font-size: 14px;
-  }
-  .dashboardSection {
-    top: 10px;
-    left: 0;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .Attendance {
-    flex-direction: column;
-    align-items: center;
+
+  .dashboard {
+    margin-left: 0;
+    padding: 15px;
   }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 20px;
-    text-align: center;
+  header h1 {
+    font-size: 14px;
   }
   .num {
     width: 60px;
     height: 60px;
-    font-size: 16px;
-    padding: 10px;
+    font-size: 14px;
   }
 }
+
 
