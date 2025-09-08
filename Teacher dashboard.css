@@ -2,27 +2,33 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
 }
 
 body {
-  background-color: #0f172a;
+  /* Use a more colorful, vibrant gradient for the background to make the glass effect pop */
+  background: linear-gradient(135deg, #b7c2d3ee, #bac9d0f3); 
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  /* Use a high-contrast text color for legibility against the light glass */
+  color: #333333; 
 }
 
 header {
-  background: #1e293b; /* dark navy */
+  background: rgba(255, 255, 255, 0.4); /* Slightly less transparent for header */
+  backdrop-filter: blur(15px); /* Stronger blur for a more defined glass effect */
+  -webkit-backdrop-filter: blur(15px);
   height: 60px;
   width: 100%;
-  color: white;
+  color: #333333; /* Dark text on light glass */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 30px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  /* A softer, more elegant shadow */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Profile section */
@@ -36,54 +42,50 @@ header {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #38bdf8; /* cyan border */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Subtle white border for a clean look */
   object-fit: cover;
 }
 
 .profile span {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* .sidebar {
-  background-color: #1e293b;
-  height: 400px;
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-} */
-
 .sidebar {
-  position: fixed; /* keep it fixed while scrolling */
+  position: fixed;
   top: 61px;
-  left: 0; /* stick to the left */
-  width: 250px; /* set sidebar width */
-  height: 100%; /* full height */
-  background: #1e293b; /* dark background */
-  color: white;
-  /* padding: 20px; */
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: rgb(255, 255, 255); /* Semi-transparent white */
+  backdrop-filter: blur(18px); /* Strong blur */
+  -webkit-backdrop-filter: blur(18px);
+  color: #333333; /* Dark text for contrast */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .sidebar h2 {
   margin-bottom: 20px;
-  padding-left: 10px;
+  padding: 20px 10px 10px;
+  color: #666; /* Slightly muted title color */
 }
 
 .sidebar a {
   text-decoration: none;
-  color: #ffffff;
-  margin: 5px;
-  padding: 5px;
+  color: #333333;
+  margin: 5px 10px;
+  padding: 10px;
   cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
 }
 
 .padding {
@@ -91,33 +93,38 @@ header {
   display: flex;
   align-items: self-end;
 }
-.sidebar a:hover {
-  color: gray; /* hover effect */
-  /* border: 1px solid white; */
-  background-color: #0f172a;
-  border-radius: 8px;
-}
 
 .dashboardSection {
-  background-color: #1b2434;
+  background: rgba(255, 255, 255, 0.292); /* Semi-transparent white */
+  backdrop-filter: blur(20px); /* Strongest blur for a distinct foreground element */
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
   top: 70px;
   left: 100px;
   width: 70%;
-  border-radius: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light, subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
+  color: #333333; /* Dark text for readability */
+  padding: 20px;
 }
 
 h1 {
   padding-left: 20px;
   padding-top: 20px;
+  color: #555;
 }
 
 .timestamp p {
   display: flex;
   justify-content: end;
   margin-right: 20px;
-  background-color: #1e293b;
-  padding: 3px;
+  background: rgba(255, 255, 255, 0.3); /* Match other glass elements */
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  font-size: 14px;
 }
 
 .Attendance {
@@ -125,64 +132,32 @@ h1 {
   justify-content: space-evenly;
   margin-top: 20px;
 }
-.total-student {
-  background-color: #121823;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+
+.total-student,
+.today-attendance,
+.Low-attendance {
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
   display: inline-block;
   padding: 25px 45px 35px 45px;
-  /* margin-left: 100px; */
-  border-radius: 8px;
-}
-
-.today-attendance {
-  text-align: center;
-  background-color: #121823;
-  padding: 25px 45px 35px 45px;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #333333; /* Dark text */
 }
 
 .attendance-box { 
   display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 30px; /* space between Present and Absent */
+  justify-content: center;
+  gap: 30px;
   margin-top: 10px;
 }
 
 .attendance-item {
   display: flex;
-  flex-direction: column; /* label on top, number below */
+  flex-direction: column;
   align-items: center;
-}
-
-.num {
-  border: 3px solid;
-  border-radius: 50%;
-  padding: 15px 25px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.num-present {
-  border-color: green;
-  color: green;
-}
-
-.num-absent {
-  border-color: red;
-  color: red;
-}
-
-.Low-attendance {
-  background-color: #121823;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  padding: 25px 45px 35px 45px;
-  /* margin-left: 100px; */
-  border-radius: 8px;
-}
-
-.today-attendance span {
-  display: flex;
 }
 
 .num {
@@ -195,30 +170,32 @@ h1 {
   font-size: 22px;
   font-weight: bold;
   margin: 10px auto;
-  border: 6px solid transparent; /* default */
+  border: 6px solid transparent;
 }
 
-/* Different border colors for each */
 .num-total {
   border-color: #4CAF50; /* Green */
+  color: #4CAF50;
 }
 
 .num-present {
   border-color: #2196F3; /* Blue */
+  color: #2196F3;
 }
 
 .num-absent {
-  border-color: #f9493dec; /* Red */
+  border-color: #f9493d; /* Red */
+  color: #f9493d;
 }
 
 .num-low {
-  border-color: red; /* Orange */
+  border-color: #ff9800; /* Orange */
+  color: #ff9800;
 }
 
-/* ---Camra section --- */
-
+/* ---Camera section --- */
 .camera-upload {
-  margin: 50px 200px 50px 200px;
+  margin: 50px auto; /* Centers the content */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -227,126 +204,24 @@ h1 {
 
 .camera-btn {
   display: inline-block;
-  padding: 10px 20px;
-  background: #2563eb;
-  color: white;
+  padding: 12px 25px; /* Adjust padding for better look */
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #333333; /* Dark text for legibility */
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .camera-btn:hover {
-  background: #1d4ed8;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #cameraInput {
-  display: none; /* hide default file input */
-}
-
-
-
-/* ---------- For Tablets (like iPad) ---------- */
-@media (max-width: 1024px) {
-  .dashboardSection {
-    left: 80px;
-    width: 80%;
-  }
-
-  .Attendance {
-    flex-direction: column; /* stack vertically */
-    align-items: center;
-  }
-
-  .total-student,
-  .today-attendance,
-  .Low-attendance {
-    margin: 10px 0;
-    width: 90%;
-  }
-}
-
-/* ---------- For Mobile Phones (landscape & portrait) ---------- */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-  }
-
-  .profile span {
-    font-size: 14px;
-  }
-
-  .sidebar {
-    width: 200px;
-    font-size: 14px;
-  }
-
-  .dashboardSection {
-    top: 70px;
-    left: 220px;
-    width: calc(100% - 220px);
-    padding: 10px;
-  }
-
-  .Attendance {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .camera-upload {
-    margin: 20px;
-  }
-
-  .num {
-    width: 60px;
-    height: 60px;
-    font-size: 16px;
-  }
-}
-
-/* ---------- For Small Phones (iPhone SE, etc.) ---------- */
-@media (max-width: 480px) {
-  body {
-    flex-direction: column;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    overflow-x: auto;
-  }
-
-  .sidebar a {
-    flex: 1;
-    text-align: center;
-    padding: 8px;
-  }
-
-  .dashboardSection {
-    position: relative;
-    top: 10px;
-    left: 0;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .Attendance {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .num {
-    width: 50px;
-    height: 50px;
-    font-size: 14px;
-  }
+  display: none;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -376,12 +251,18 @@ h1 {
   }
 
   .sidebar {
-    position: relative; /* stack on top instead of fixed */
+    position: relative;
     width: 100%;
     height: auto;
     border-radius: 0;
     flex-direction: row;
-    overflow-x: auto; /* scroll if too many items */
+    overflow-x: auto;
+    top: 0; /* Align with header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar h2 {
+    display: none; /* Hide sidebar title on mobile */
   }
 
   .sidebar a {
@@ -389,6 +270,7 @@ h1 {
     text-align: center;
     padding: 10px;
     font-size: 14px;
+    margin: 5px;
   }
 
   .dashboardSection {
@@ -397,6 +279,7 @@ h1 {
     top: 10px;
     margin: 0 auto;
     padding: 10px;
+    border-radius: 0;
   }
 
   .Attendance {
@@ -439,8 +322,5 @@ h1 {
     font-size: 14px;
   }
 }
-
-
-
 
 

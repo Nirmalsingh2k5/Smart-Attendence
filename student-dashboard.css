@@ -1,36 +1,36 @@
-/* ===== RESET ===== */
+/* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #0f172a;
-  color: #fff;
+  background: linear-gradient(135deg, #b7c2d3ee, #bac9d0f3);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  color: #333333;
 }
 
 /* ===== HEADER ===== */
 header {
-  background: #1e293b;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   height: 60px;
   width: 100%;
+  color: #333333;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 25px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.4);
+  align-items: center;
+  padding: 12px 30px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-header h1 {
-  font-size: 18px;
-  color: #38bdf8;
-}
-
+/* Profile */
 .profile {
   display: flex;
   align-items: center;
@@ -41,13 +41,13 @@ header h1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #38bdf8;
+  border: 2px solid rgba(255, 255, 255, 0.7);
   object-fit: cover;
 }
 
 .profile span {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* ===== SIDEBAR ===== */
@@ -55,93 +55,92 @@ header h1 {
   position: fixed;
   top: 61px;
   left: 0;
-  width: 230px;
+  width: 250px;
   height: 100%;
-  background: #1e293b;
-  padding-top: 20px;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: #333333;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
 }
 
 .sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  padding-left: 15px;
-  color: #38bdf8;
+  margin-bottom: 20px;
+  padding: 20px 10px 10px;
+  color: #666;
 }
 
 .sidebar a {
-  padding: 12px 15px;
   text-decoration: none;
-  color: #fff;
-  border-radius: 6px;
-  margin: 3px 10px;
+  color: #333333;
+  margin: 5px 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .sidebar a:hover {
-  background-color: #0f172a;
-  color: #38bdf8;
+  color: #000;
+  background: rgba(255, 255, 255, 0.5);
 }
 
-/* ===== MAIN DASHBOARD ===== */
-.dashboard {
-  margin-left: 250px;
+/* ===== DASHBOARD MAIN ===== */
+.dashboardSection {
+  background: rgba(255, 255, 255, 0.292);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  top: 70px;
+  left: 100px;
+  width: 70%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #333333;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
 }
 
-/* ===== CARDS ===== */
-.card {
-  background: #1b2434;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
-}
-
-.card h2 {
-  margin-bottom: 15px;
-  border-left: 5px solid #38bdf8;
-  padding-left: 10px;
-  font-size: 18px;
-}
-
-.card ul {
-  list-style: none;
-}
-
-.card li {
-  margin: 10px 0;
-}
-
-.card a {
-  color: #38bdf8;
-  text-decoration: none;
-}
-
-.card a:hover {
-  text-decoration: underline;
+h1 {
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #555;
 }
 
 /* ===== ATTENDANCE ===== */
-.attendance-stats {
+.Attendance {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 15px;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
-.stat {
-  text-align: center;
+.total-student,
+.today-attendance {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  padding: 25px 45px 35px 45px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #333333;
 }
 
-.stat span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
+.attendance-box {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.attendance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .num {
@@ -151,68 +150,146 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
-  margin: auto;
-  border: 5px solid;
+  margin: 10px auto;
+  border: 6px solid transparent;
 }
 
-.total {
+.num-total {
   border-color: #4CAF50;
   color: #4CAF50;
 }
 
-.present {
+.num-present {
   border-color: #2196F3;
   color: #2196F3;
 }
 
-.absent {
-  border-color: #f43f5e;
-  color: #f43f5e;
+.num-absent {
+  border-color: #f9493d;
+  color: #f9493d;
 }
 
-.percent {
-  border-color: #fbbf24;
-  color: #fbbf24;
+.num-percent {
+  border-color: #ff9800;
+  color: #ff9800;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== CARDS (Notes, Syllabus, Announcements) ===== */
+section {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 20px 0;
+  padding: 20px;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+section ul {
+  list-style: none;
+}
+
+section ul li {
+  margin: 8px 0;
+}
+
+section ul li a {
+  text-decoration: none;
+  color: #2196F3;
+  font-weight: 500;
+}
+
+section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
-  .dashboard {
-    margin-left: 220px;
+  .dashboardSection {
+    width: 85%;
+    left: 70px;
   }
   .sidebar {
     width: 200px;
   }
+  .Attendance {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+  }
+
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
+    border-radius: 0;
     flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-bottom: 10px;
+    overflow-x: auto;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .dashboard {
-    margin-left: 0;
-    padding: 15px;
+  .sidebar h2 {
+    display: none;
+  }
+
+  .sidebar a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  .dashboardSection {
+    width: 100%;
+    left: 0;
+    top: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 0;
+  }
+
+  .Attendance {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .total-student,
+  .today-attendance {
+    width: 90%;
+    margin: 10px 0;
+    padding: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 14px;
+  h1 {
+    font-size: 20px;
+    text-align: center;
   }
+
   .num {
     width: 60px;
     height: 60px;
-    font-size: 14px;
+    font-size: 16px;
+    padding: 10px;
   }
 }
-
-

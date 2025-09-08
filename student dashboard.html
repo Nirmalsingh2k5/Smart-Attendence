@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard | Smart Attendance</title>
-  <link rel="stylesheet" href="student-dashboard.css">
-</head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="profile">
-      <img src="tab4.png" alt="Student Profile">
-      <span>Welcome, Students</span>
-    </div>
-    <h1>Smart Attendance Portal</h1>
-  </header>
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2>Menu</h2>
-    <a href="#">🏠 Dashboard</a>
-    <a href="#">📋 My Attendance</a>
-    <a href="#">📚 My Classes</a>
-    <a href="#">📝 Notes</a>
-    <a href="#">📖 Syllabus</a>
-    <a href="#">📢 Announcements</a>
-    <a href="#">⚙️ Settings</a>
-    <a href="home2.html">🚪 Logout</a>
-  </aside>
-
-  <!-- MAIN DASHBOARD -->
-  <main class="dashboard">
-    <!-- ATTENDANCE OVERVIEW -->
-    <section class="card attendance">
-      <h2>📊 Attendance Overview</h2>
-      <div class="attendance-stats">
-        <div class="stat">
-          <span>Total Classes</span>
-          <div class="num total">60</div>
-        </div>
-        <div class="stat">
-          <span>Present</span>
-          <div class="num present">48</div>
-        </div>
-        <div class="stat">
-          <span>Absent</span>
-          <div class="num absent">12</div>
-        </div>
-        <div class="stat">
-          <span>Attendance %</span>
-          <div class="num percent">80%</div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | Smart Attendance</title>
+    <link rel="stylesheet" href="student-dashboard.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="profile">
+        <img src="tab4.png" alt="Student Profile" />
+        <span>Welcome, Student</span>
       </div>
-    </section>
+    </header>
 
-    <!-- NOTES -->
-    <section class="card">
-      <h2>📘 Notes</h2>
-      <ul>
-        <li><a href="notes/math.pdf" target="_blank">DN Notes</a></li>
-        <li><a href="notes/science.pdf" target="_blank">CC Notes</a></li>
-        <li><a href="notes/history.pdf" target="_blank">AML notes</a></li>
-      </ul>
-    </section>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2>Smart Attendance</h2>
+      <a href="#" onclick="showDashboard()" class="active">🏠 Dashboard</a>
+      <a href="#" onclick="showSection('myAttendance')" class="active">📋 My Attendance</a>
+      <a href="#" onclick="showSection('myClasses')" class="active">📚 My Classes</a>
+      <a href="#" onclick="showSection('notes')" class="active">📝 Notes</a>
+      <a href="#" onclick="showSection('syllabus')" class="active">📖 Syllabus</a>
+      <a href="#" onclick="showSection('announcements')" class="active">📢 Announcements</a>
+      <a href="#" onclick="showSection('settings')" class="active">⚙️ Settings</a>
+      <a href="home2.html">🚪 Logout</a>
+    </div>
 
-    <!-- SYLLABUS -->
-    <section class="card">
-      <h2>📖 Syllabus</h2>
-      <ul>
-        <li><a href="syllabus/math.pdf" target="_blank">DN Syllabus</a></li>
-        <li><a href="syllabus/science.pdf" target="_blank">CC Syllabus</a></li>
-        <li><a href="syllabus/history.pdf" target="_blank">AML Syllabus</a></li>
-      </ul>
-    </section>
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboardSection">
+      <h1>Student Dashboard</h1>
 
-    <!-- ANNOUNCEMENTS -->
-    <section class="card">
-      <h2>📢 Announcements</h2>
-      <ul>
-        <li>⚠️ Class test on Monday</li>
-        <li>📅 Project submission deadline: 10th Sept</li>
-        <li>🎉 Annual function on 25th Sept</li>
-      </ul>
-    </section>
-  </main>
-</body>
+      <!-- ATTENDANCE OVERVIEW -->
+      <main class="Attendance">
+        <div class="total-student">
+          <h3>Total Classes</h3>
+          <div class="num num-total">60</div>
+        </div>
+
+        <div class="today-attendance">
+          <h3>My Attendance</h3>
+          <div class="attendance-box">
+            <div class="attendance-item">
+              <span>Present</span>
+              <div class="num num-present">48</div>
+            </div>
+            <div class="attendance-item">
+              <span>Absent</span>
+              <div class="num num-absent">12</div>
+            </div>
+            <div class="attendance-item">
+              <span>Attendance %</span>
+              <div class="num num-percent">80%</div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- NOTES SECTION -->
+      <section id="notes">
+        <h2>📘 Notes</h2>
+        <ul>
+          <li><a href="notes/math.pdf" target="_blank">DN Notes</a></li>
+          <li><a href="notes/science.pdf" target="_blank">CC Notes</a></li>
+          <li><a href="notes/history.pdf" target="_blank">AML Notes</a></li>
+        </ul>
+      </section>
+
+      <!-- SYLLABUS SECTION -->
+      <section id="syllabus">
+        <h2>📖 Syllabus</h2>
+        <ul>
+          <li><a href="syllabus/math.pdf" target="_blank">DN Syllabus</a></li>
+          <li><a href="syllabus/science.pdf" target="_blank">CC Syllabus</a></li>
+          <li><a href="syllabus/history.pdf" target="_blank">AML Syllabus</a></li>
+        </ul>
+      </section>
+
+      <!-- ANNOUNCEMENTS SECTION -->
+      <section id="announcements">
+        <h2>📢 Announcements</h2>
+        <ul>
+          <li>⚠️ Class test on Monday</li>
+          <li>📅 Project submission deadline: 10th Sept</li>
+          <li>🎉 Annual function on 25th Sept</li>
+        </ul>
+      </section>
+    </div>
+  </body>
 </html>
