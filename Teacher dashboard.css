@@ -1,4 +1,11 @@
 /* General Body and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -29,6 +36,36 @@ body {
     position: fixed;
     width: 100%;
     z-index: 1000;
+  /* Use a more colorful, vibrant gradient for the background to make the glass effect pop */
+  background: linear-gradient(135deg, #b7c2d3ee, #bac9d0f3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Use a high-contrast text color for legibility against the light glass */
+  color: #333333;
+}
+
+header {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Slightly less transparent for header */
+  backdrop-filter: blur(
+    15px
+  ); /* Stronger blur for a more defined glass effect */
+  -webkit-backdrop-filter: blur(15px);
+  height: 60px;
+  width: 100%;
+  color: #333333; /* Dark text on light glass */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  /* A softer, more elegant shadow */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .profile {
@@ -90,6 +127,25 @@ body {
     background-color: rgba(52, 152, 219, 0.8); /* Vibrant blue hover/active with transparency */
     border-left: 5px solid #3498db;
     color: #ffffff;
+.sidebar a:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
+  text-decoration: underline;
+}
+
+.active {
+  /* background-color: #f7f6f6; */
+  border-radius: 2px solid black;
+}
+
+.sidebar a::after {
+  background-color: #443d3d;
+}
+
+.padding {
+  margin-top: 500px;
+  display: flex;
+  align-items: self-end;
 }
 
 /* Main Content Area */
@@ -138,6 +194,45 @@ body {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 30px;
+.dashboardSection {
+  background: rgba(255, 255, 255, 0.292); /* Semi-transparent white */
+  backdrop-filter: blur(
+    20px
+  ); /* Strongest blur for a distinct foreground element */
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  top: 70px;
+  left: 100px;
+  width: 70%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light, subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
+  color: #333333; /* Dark text for readability */
+  padding: 20px;
+}
+
+h1 {
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #555;
+}
+
+.timestamp p {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  background: rgba(255, 255, 255, 0.3); /* Match other glass elements */
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.Attendance {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .stat-card h3 {
@@ -176,6 +271,29 @@ body {
     display: flex;
     justify-content: space-around;
     margin-top: 25px;
+.total-student,
+.today-attendance,
+.Low-attendance {
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  display: inline-block;
+  padding: 25px 45px 35px 45px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #333333; /* Dark text */
+}
+
+.num-total {
+  margin-top: 10px;
+}
+
+.attendance-box {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
 }
 
 .attendance-item {
@@ -221,6 +339,46 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border for preview */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: none;
+.num {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px auto;
+  border: 6px solid transparent;
+}
+
+.num-total {
+  border-color: #4caf50; /* Green */
+  color: #4caf50;
+}
+
+.num-present {
+  border-color: #2196f3; /* Blue */
+  color: #2196f3;
+}
+
+.num-absent {
+  border-color: #f9493d; /* Red */
+  color: #f9493d;
+}
+
+.num-low {
+  border-color: #ff9800; /* Orange */
+  color: #ff9800;
+}
+
+/* ---Camera section --- */
+.camera-upload {
+  margin: 50px auto; /* Centers the content */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .camera-btn {
@@ -415,6 +573,36 @@ body {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+    font-size: 14px;
+  }
+}
+
+/* Show modal when checkbox checked */
+#subjectToggle:checked + .modal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Content */
+.modal-content {
+  background: rgba(255, 255, 255, 0.292);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
     .stat-card, .camera-section, .manual-attendance-section {
         padding: 25px;
@@ -428,4 +616,50 @@ body {
         width: 90%;
         height: 150px;
     }
+}
+/* Close Button */
+.close-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #7f5af0;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+footer {
+  height: 70px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* space between links */
+  margin: 0;
+  padding: 0;
+}
+
+footer li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer li a:hover {
+  text-decoration: underline;
+  color: #0193fc; /* optional hover color */
+}
+
+.fbox2 {
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
 }

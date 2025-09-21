@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance | Smart Attendance</title>
+    <link rel="stylesheet" href="T-attendance.css">
+
+  </head>
+  <body>
+    <h1>📋 Attendance</h1>
+
+    <!-- Mark Attendance Section -->
+    <div class="attendance-card">
+      <h2>Mark Today's Attendance</h2>
+      <div class="date-section">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" />
+      </div>
+
+      <table>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Aryan Kumar</td>
+          <td>
+            <label class="tik">
+              <input type="radio" name="attendance1" value="present" />
+              Present
+            </label>
+            <label class="tik">
+              <input type="radio" name="attendance1" value="absent" />
+              Absent
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Munchun Sharma</td>
+          <td>
+            <label class="tik">
+              <input type="radio" name="attendance2" value="present" />
+              Present
+            </label>
+            <label class="tik">
+              <input type="radio" name="attendance2" value="absent" />
+              Absent
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Rahul Verma</td>
+          <td>
+            <label class="tik">
+              <input type="radio" name="attendance3" value="present" />
+              Present
+            </label>
+            <label class="tik">
+              <input type="radio" name="attendance3" value="absent" />
+              Absent
+            </label>
+          </td>
+        </tr>
+      </table>
+
+      <button class="btn btn-save">💾 Save Attendance</button>
+      <button class="btn btn-reset">❌ Reset</button>
+    </div>
+
+    <!-- View Previous Attendance Section -->
+    <div class="attendance-card">
+      <h2>📅 View Previous Attendance</h2>
+      <div class="date-section">
+        <label for="previous-date">Select Date:</label>
+        <input type="date" id="previous-date" name="previous-date" />
+        <button class="btn btn-save">🔍 View</button>
+      </div>
+
+      <table>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Aryan Kumar</td>
+          <td>Present</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Munchun Sharma</td>
+          <td>Absent</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Rahul Verma</td>
+          <td>Present</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
