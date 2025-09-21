@@ -33,11 +33,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(ai2.png);
+  background-image: url('tab4.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  height: 60px;
+  height: 150px;
   width: 200px;
 }
 
@@ -126,8 +126,8 @@ body {
 .btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, #a78df5c4, rgb(244, 204, 204), #55d1ead7);
-  color: white;
+  background: #d1cece;
+  color: rgb(21, 5, 163);
   font-weight: bold;
   border: none;
   border-radius: 8px;

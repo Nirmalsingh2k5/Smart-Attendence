@@ -1,160 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher Dashboard | Smart Attendance</title>
     <link rel="stylesheet" href="Teacher dashboard.css" />
-  </head>
-  <body>
-    <header>
-      <div class="profile">
-        <img src="tab4.png" alt="profile" />
-        <span>Mr. Sharma</span>
-      </div>
+</head>
+<body>
+    <header class="main-header">
+        <div class="profile">
+            <img src="tab4.png" alt="Smart Attendance Logo" class="profile-logo" />
+            <span class="app-name">Smart Attendance</span>
+        </div>
     </header>
 
-    <div class="sidebar">
-      <h2>Smart Attendance</h2>
-      <a href="#" onclick="showDashboard( )" class="active">🏠 Dashboard</a>
-      <a href="#" onclick="showManualAttendance( )" class="active"
-        >📋 Attendance</a
-      >
-      <a href="#" onclick="showSection('students')" class="active"
-        >👩‍🎓 Students</a
-      >
-      <a href="#" onclick="showSection('camera')" class="active">📚 Classes</a>
-      <a href="#" onclick="showSection('reports')" class="active">📝Reports</a>
-      <a href="#" onclick="showSection('reports')" class="active"
-        >📢 Announcements</a
-      >
-      <a href="#" onclick="showSection('settings')" class="active"
-        >⚙️ Settings</a
-      >
-      <a href="home2.html" onclick="showSection('about')">🚪 Logout</a>
-    </div>
+    <nav class="sidebar">
+        <h2 class="sidebar-title">Smart Attendance</h2>
+        <ul>
+            <li><a href="#" id="dashboardLink" class="active">🏠 Dashboard</a></li>
+            <li><a href="#" id="attendanceLink">📋 Attendance</a></li>
+            <li><a href="#" id="studentsLink">👩‍🎓 Students</a></li>
+            <li><a href="#" id="classesLink">📚 Classes</a></li>
+            <li><a href="#" id="reportsLink">📝 Reports</a></li>
+            <li><a href="#" id="announcementsLink">📢 Announcements</a></li>
+            <li><a href="#" id="settingsLink">⚙️ Settings</a></li>
+            <li><a href="home2.html" id="logoutLink">🚪 Logout</a></li>
+        </ul>
+    </nav>
 
-    <div class="dashboardSection">
-      <h1>Teacher Dashboard</h1>
+    <main class="main-content">
+        <section id="dashboardSection" class="dashboard-section active-section">
+            <h1 class="section-title">Teacher Dashboard</h1>
 
-      <div class="timestamp">
-        <p id="attendanceTime">📅 Date & Time: Not marked yet</p>
-      </div>
-
-      <!-- --- ATTENDANCE SECTION --- -->
-      <main class="Attendance">
-        <div class="total-student">
-          <h3>Total Students</h3>
-          <div class="num num-total">50</div>
-        </div>
-
-        <div class="today-attendance">
-          <h3>Today Attendance</h3>
-          <div class="attendance-box">
-            <div class="attendance-item">
-              <span>Present</span>
-              <div class="num num-present">36</div>
+            <div class="timestamp">
+                <p id="attendanceTime">📅 Date & Time: Not marked yet</p>
             </div>
-            <div class="attendance-item">
-              <span>Absent</span>
-              <div class="num num-absent">14</div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card total-students-card">
+                    <h2>Total Students</h2>
+                    <div class="stat-number total-students-num">50</div>
+                </div>
+
+                <div class="stat-card today-attendance-card">
+                    <h2>Today Attendance</h2>
+                    <div class="attendance-summary">
+                        <div class="attendance-item present">
+                            <span>Present</span>
+                            <div class="stat-number present-num">36</div>
+                        </div>
+                        <div class="attendance-item absent">
+                            <span>Absent</span>
+                            <div class="stat-number absent-num">14</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card alert-card">
+                    <h2>Alert</h2>
+                    <h4>Low Attendance</h4>
+                    <div class="stat-number low-attendance-num">6</div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="Low-attendance">
-          <h2>Alert</h2>
-          <h3>Low Attendance</h3>
-          <div class="num num-low">6</div>
-        </div>
-      </main>
+            <div class="camera-section">
+                <h2>Take Attendance via Camera</h2>
+                <div class="camera-upload-area">
+                    <img id="preview" alt="Your photo will appear here" class="camera-preview" />
+                    <label for="cameraInput" class="camera-btn">📷 Open Camera</label>
+                    <input type="file" id="cameraInput" accept="image/*" capture="user" />
+                    <small>Take a photo or upload (JPG, JPEG, PNG)</small>
+                </div>
+            </div>
+        </section>
 
-      <!-- */--- CAMERA SECTION --- */ -->
-      <section class="hero">
-        <div class="camera-upload">
-          <!-- Preview image will appear here -->
-          <img
-            id="preview"
-            alt="Your photo will appear here"
-            style="
-              display: none;
-              width: 200px;
-              margin-bottom: 10px;
-              border-radius: 8px;
-            "
-          />
+        <section id="manualAttendanceSection" class="manual-attendance-section hidden">
+            <h2 class="section-title">Mark Attendance (Manually)</h2>
+            <div class="manual-attendance-table-container">
+                <table>
+                    <caption>Quickly mark attendance for individual students</caption>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Aryan Sharma</td>
+                            <td>
+                                <label><input type="radio" name="Aryan" value="Present" /> Present</label>
+                                <label><input type="radio" name="Aryan" value="Absent" /> Absent</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Nirmal Singh</td>
+                            <td>
+                                <label><input type="radio" name="Nirmal" value="Present" /> Present</label>
+                                <label><input type="radio" name="Nirmal" value="Absent" /> Absent</label>
+                            </td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </section>
 
-          <!-- Camera button -->
-          <label for="cameraInput" class="camera-btn">📷 Open Camera</label>
-          <input type="file" id="cameraInput" accept="image/*" capture="user" />
-          <small>Take a photo or upload (JPG, JPEG, PNG)</small>
+        <section id="studentsSection" class="content-section hidden">
+            <h2 class="section-title">Students List</h2>
+            <p>Content for Students goes here...</p>
+        </section>
+        <section id="classesSection" class="content-section hidden">
+            <h2 class="section-title">Classes Management</h2>
+            <p>Content for Classes goes here...</p>
+        </section>
+        <section id="reportsSection" class="content-section hidden">
+            <h2 class="section-title">Attendance Reports</h2>
+            <p>Content for Reports goes here...</p>
+        </section>
+        <section id="announcementsSection" class="content-section hidden">
+            <h2 class="section-title">Announcements</h2>
+            <p>Content for Announcements goes here...</p>
+        </section>
+        <section id="settingsSection" class="content-section hidden">
+            <h2 class="section-title">Settings</h2>
+            <p>Content for Settings goes here...</p>
+        </section>
+
+    </main>
+
+    <div id="subjectModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Select Subject</h3>
+            <select id="subjectSelect">
+                <option disabled selected>-- Choose Subject --</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+            <button id="continueSubjectBtn" class="close-btn">Continue</button>
         </div>
-      </section>
     </div>
 
-    <!-- Checkbox toggle -->
-    <input type="checkbox" id="subjectToggle" />
-
-    <!-- Modal -->
-    <div class="modal">
-      <div class="modal-content">
-        <h3>Select Subject</h3>
-        <select>
-          <option disabled selected>-- Choose Subject --</option>
-          <option>Math</option>
-          <option>Science</option>
-          <option>History</option>
-        </select>
-        <br />
-        <label for="subjectToggle" class="close-btn">Continue</label>
-      </div>
-    </div>
-    <!-- </section> -->
-
-    <!-- MANUAL ATTENDANCE (Hidden by default) -->
-    <section id="manualAttendance" style="display: none; margin-top: 20px">
-      <div class="manual-attendance">
-        <h3>Mark Attendance (Manually)</h3>
-        <table>
-          <caption>
-            Quickly mark attendance for individual students
-          </caption>
-          <tr>
-            <th>Roll No</th>
-            <th>Name</th>
-            <th>Attendance</th>
-          </tr>
-          <tr>
-            <td>01</td>
-            <td>Aryan Sharma</td>
-            <td>
-              <label
-                ><input type="radio" name="Aryan" value="Present" />
-                Present</label
-              >
-              <label
-                ><input type="radio" name="Aryan" value="Absent" />
-                Absent</label
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>02</td>
-            <td>Nirmal Singh</td>
-            <td>
-              <label
-                ><input type="radio" name="Nirmal" value="Present" />
-                Present</label
-              >
-              <label
-                ><input type="radio" name="Nirmal" value="Absent" />
-                Absent</label
-              >
-            </td>
-          </tr>
-          <!-- more rows -->
-        </table>
-      </div>
-    </section>
-  </body>
+    <script src="teacher-dasboard.js"></script> </body>
 </html>

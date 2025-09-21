@@ -1,365 +1,431 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
-}
-
+/* General Body and Layout */
 body {
-  /* Use a more colorful, vibrant gradient for the background to make the glass effect pop */
-  background: linear-gradient(135deg, #b7c2d3ee, #bac9d0f3); 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Use a high-contrast text color for legibility against the light glass */
-  color: #333333; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%); /* Light, vibrant background */
+    display: flex;
+    min-height: 100vh;
+    color: #333;
 }
 
-header {
-  background: rgba(255, 255, 255, 0.4); /* Slightly less transparent for header */
-  backdrop-filter: blur(15px); /* Stronger blur for a more defined glass effect */
-  -webkit-backdrop-filter: blur(15px);
-  height: 60px;
-  width: 100%;
-  color: #333333; /* Dark text on light glass */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 30px;
-  /* A softer, more elegant shadow */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+/* Glassmorphism Base Styles */
+.glass-effect {
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-radius: 15px; /* Softer rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
 }
 
-/* Profile section */
+/* Header */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent for header */
+    backdrop-filter: blur(15px);
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
 .profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.profile img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.7); /* Subtle white border for a clean look */
-  object-fit: cover;
+.profile-logo {
+    width: 35px; /* Slightly larger logo */
+    height: 35px;
+    margin-right: 12px;
 }
 
-.profile span {
-  font-size: 16px;
-  font-weight: 600;
+.app-name {
+    font-weight: 800; /* Bolder */
+    color: #2c3e50; /* Darker text for contrast */
+    font-size: 1.3em; /* Slightly larger */
 }
 
+/* Sidebar Navigation */
 .sidebar {
-  position: fixed;
-  top: 61px;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  background: rgb(255, 255, 255); /* Semi-transparent white */
-  backdrop-filter: blur(18px); /* Strong blur */
-  -webkit-backdrop-filter: blur(18px);
-  color: #333333; /* Dark text for contrast */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
-  display: flex;
-  flex-direction: column;
+    width: 250px;
+    background-color: rgba(44, 62, 80, 0.85); /* Darker, semi-transparent for sidebar */
+    backdrop-filter: blur(12px);
+    color: #ecf0f1;
+    padding-top: 80px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
-  padding: 20px 10px 10px;
-  color: #666; /* Slightly muted title color */
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 1.6em;
+    font-weight: 700;
 }
 
-.sidebar a {
-  text-decoration: none;
-  color: #333333;
-  margin: 5px 10px;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
-.sidebar a:hover {
-  color: #000;
-  background: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
+.sidebar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 5px solid transparent;
+    font-size: 1.05em;
+    font-weight: 500;
 }
 
-.padding {
-  margin-top: 500px;
-  display: flex;
-  align-items: self-end;
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: rgba(52, 152, 219, 0.8); /* Vibrant blue hover/active with transparency */
+    border-left: 5px solid #3498db;
+    color: #ffffff;
 }
 
-.dashboardSection {
-  background: rgba(255, 255, 255, 0.292); /* Semi-transparent white */
-  backdrop-filter: blur(20px); /* Strongest blur for a distinct foreground element */
-  -webkit-backdrop-filter: blur(20px);
-  position: relative;
-  top: 70px;
-  left: 100px;
-  width: 70%;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Light, subtle border */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
-  color: #333333; /* Dark text for readability */
-  padding: 20px;
+/* Main Content Area */
+.main-content {
+    margin-left: 250px;
+    padding: 100px 30px 30px 30px; /* Increased padding */
+    flex-grow: 1;
+    color: #333; /* Dark text for readability on light glass */
 }
 
-h1 {
-  padding-left: 20px;
-  padding-top: 20px;
-  color: #555;
+.section-title {
+    color: #2c3e50; /* Darker heading */
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Larger heading */
+    font-weight: 700;
 }
 
-.timestamp p {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
-  background: rgba(255, 255, 255, 0.3); /* Match other glass elements */
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 5px 10px;
-  font-size: 14px;
+.timestamp {
+    /* Applying glass effect here */
+    @extend .glass-effect; /* This is a placeholder, you'd apply these properties directly or via a mixin */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 18px 25px;
+    margin-bottom: 35px;
+    color: #555;
+    font-size: 1em;
+    display: inline-block; /* To fit content */
+     border-radius: 30px;
 }
 
-.Attendance {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
+/* Dashboard Stats Cards */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Increased gap */
+    margin-bottom: 50px;
+    
 }
 
-.total-student,
-.today-attendance,
-.Low-attendance {
-  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  display: inline-block;
-  padding: 25px 45px 35px 45px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #333333; /* Dark text */
+.stat-card {
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px; /* Increased padding */
+    text-align: center;
+    display: flex; /* For better alignment of content */
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 30px;
 }
 
-.attendance-box { 
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 10px;
+.stat-card h3 {
+    color: #555;
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.stat-card h4 {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.stat-number {
+    font-size: 3em; /* Larger numbers */
+    font-weight: 900;
+    margin-top: 15px;
+    line-height: 1; /* Adjust line height for large numbers */
+}
+
+.total-students-num { color: #28a745; } /* Green */
+.present-num { color: #007bff; } /* Blue */
+.absent-num { color: #dc3545; } /* Red */
+.low-attendance-num { color: #ffc107; } /* Yellow/Orange */
+
+
+.total-students-num 
+.present-num 
+.absent-num 
+.low-attendance-num 
+
+
+.attendance-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
 }
 
 .attendance-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    text-align: center;
 }
 
-.num {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 10px auto;
-  border: 6px solid transparent;
+.attendance-item span {
+    display: block;
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-.num-total {
-  border-color: #4CAF50; /* Green */
-  color: #4CAF50;
+/* Camera Section */
+.camera-section {
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px; /* Increased padding */
+    text-align: center;
+     border-radius: 30px;
 }
 
-.num-present {
-  border-color: #2196F3; /* Blue */
-  color: #2196F3;
+.camera-section h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
 }
 
-.num-absent {
-  border-color: #f9493d; /* Red */
-  color: #f9493d;
+.camera-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.num-low {
-  border-color: #ff9800; /* Orange */
-  color: #ff9800;
-}
-
-/* ---Camera section --- */
-.camera-upload {
-  margin: 50px auto; /* Centers the content */
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.camera-preview {
+    width: 300px; /* Larger preview */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border for preview */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: none;
 }
 
 .camera-btn {
-  display: inline-block;
-  padding: 12px 25px; /* Adjust padding for better look */
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: #333333; /* Dark text for legibility */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
+    background-color: #3498db; /* Blue button */
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
 .camera-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 #cameraInput {
-  display: none;
+    display: none;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablets and smaller laptops */
-@media (max-width: 1024px) {
-  .dashboardSection {
-    width: 85%;
-    left: 70px;
-  }
-  .sidebar {
-    width: 200px;
-  }
-  .Attendance {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+/* Manual Attendance Table */
+.manual-attendance-section {
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 35px;
 }
 
-/* Phones (landscape + portrait) */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-    text-align: center;
-  }
-
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    flex-direction: row;
+.manual-attendance-table-container {
     overflow-x: auto;
-    top: 0; /* Align with header */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .sidebar h2 {
-    display: none; /* Hide sidebar title on mobile */
-  }
-
-  .sidebar a {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    margin: 5px;
-  }
-
-  .dashboardSection {
-    width: 100%;
-    left: 0;
-    top: 10px;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 0;
-  }
-
-  .Attendance {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .total-student,
-  .today-attendance,
-  .Low-attendance {
-    width: 90%;
-    margin: 10px 0;
-    padding: 20px;
-  }
-
-  .camera-upload {
-    margin: 20px auto;
-    width: 90%;
-  }
 }
 
-/* Small phones (iPhone SE, etc.) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 20px;
+.manual-attendance-section table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for rounded borders */
+    border-spacing: 0;
+    margin-top: 25px;
+    border-radius: 10px; /* Rounded corners for the whole table */
+    overflow: hidden; /* Ensures corners are clipped */
+}
+
+.manual-attendance-section caption {
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #666;
+    text-align: left;
+    font-size: 1.05em;
+}
+
+.manual-attendance-section th,
+.manual-attendance-section td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Lighter border */
+    border-right: 1px solid rgba(0, 0, 0, 0.03); /* Vertical border for separation */
+}
+
+.manual-attendance-section th {
+    background-color: rgba(240, 240, 240, 0.7); /* Lighter header background */
+    font-weight: 600;
+    color: #444;
+}
+.manual-attendance-section th:first-child { border-top-left-radius: 10px; }
+.manual-attendance-section th:last-child { border-top-right-radius: 10px; border-right: none; }
+
+
+.manual-attendance-section tr:nth-child(even) {
+    background-color: rgba(249, 249, 249, 0.5); /* Slightly different background for even rows */
+}
+
+.manual-attendance-section tr:hover {
+    background-color: rgba(240, 240, 240, 0.7); /* Glass-like hover */
+}
+.manual-attendance-section tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.manual-attendance-section tr:last-child td:last-child { border-bottom-right-radius: 10px; border-right: none;}
+.manual-attendance-section td:last-child { border-right: none; }
+
+
+.manual-attendance-section td label {
+    margin-right: 20px;
+    white-space: nowrap;
+    color: #555;
+    font-weight: 400;
+}
+
+.manual-attendance-section td input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.1); /* Slightly larger radio buttons */
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque for modal */
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-  }
+    width: 90%;
+    max-width: 450px;
+}
 
-  .num {
-    width: 60px;
-    height: 60px;
-    font-size: 16px;
-    padding: 10px;
-  }
+.modal-content h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
 
-  .camera-btn {
+.modal-content select {
     width: 100%;
     padding: 12px;
-    font-size: 14px;
-  }
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1.1em;
+    background-color: rgba(255, 255, 255, 0.8); /* Glass-like select */
+    color: #333;
 }
 
+.modal-content select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
 
+.close-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.close-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
 
-/* Show modal when checkbox checked */
-    #subjectToggle:checked + .modal {
-      opacity: 1;
-      pointer-events: auto;
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Adjustments (Adjusted for Glassmorphism) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px; /* More compact */
+        overflow-x: hidden;
     }
 
-    /* Modal Content */
-    .modal-content {
-      background: rgba(255, 255, 255, 0.292);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      width: 300px;
+    .sidebar-title, .sidebar ul li a span {
+        display: none;
     }
 
-    .modal-content h3 {
-      margin-bottom: 15px;
+    .sidebar ul li a {
+        text-align: center;
+        padding: 15px 0; /* Adjust padding */
+    }
+    .sidebar ul li a::before { /* For icons (assuming you use icon fonts or SVGs) */
+        font-size: 1.8em; /* Larger icons */
     }
 
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    .main-content {
+        margin-left: 70px;
+        padding: 90px 15px 15px 15px; /* Adjust padding */
     }
 
-    /* Close Button */
-    .close-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #7f5af0;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
+
+    .stat-card, .camera-section, .manual-attendance-section {
+        padding: 25px;
+    }
+
+    .stat-number {
+        font-size: 2.5em;
+    }
+
+    .camera-preview {
+        width: 90%;
+        height: 150px;
+    }
+}
