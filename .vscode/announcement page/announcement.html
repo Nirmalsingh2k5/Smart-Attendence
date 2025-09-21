@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Announcements</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Function to add announcement dynamically
+    function addAnnouncement(event) {
+      event.preventDefault();
+      const title = document.getElementById('title').value;
+      const message = document.getElementById('message').value;
+      const category = document.getElementById('category').value;
+      const today = new Date().toLocaleDateString();// Card border color based on category
+  let borderColor = 'border-blue-500';
+  if (category === 'cancelled') borderColor = 'border-red-500';
+  else if (category === 'time-change') borderColor = 'border-yellow-500';
+  else if (category === 'event') borderColor = 'border-green-500';
+
+  const announcement = document.createElement('div');
+  announcement.className = bg-gray shadow-lg rounded-2xl p-4 border-l-4 ${borderColor};
+  announcement.innerHTML = `
+    <h2 class="text-xl font-semibold text-gray-800">${title}</h2>
+    <p class="text-gray-600">${message}</p>
+    <span class="text-sm text-gray-500">Posted on: ${today}</span>
+  `;
+
+  document.getElementById('announcement-list').prepend(announcement);
+
+  // Reset form
+  document.getElementById('announcement-form').reset();
+}
+
+  </script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">📢 Class Announcements</h1><!-- Form for Teachers -->
+<div class="bg-gray shadow-md rounded-2xl p-6 mb-6">
+  <h2 class="text-2xl font-semibold mb-4 text-gray-700">Add New Announcement</h2>
+  <form id="announcement-form" onsubmit="addAnnouncement(event)" class="space-y-4">
+    <input id="title" type="text" placeholder="Announcement Title" required class="w-full p-2 border rounded-lg">
+    <textarea id="message" placeholder="Enter details here..." required class="w-full p-2 border rounded-lg"></textarea>
+    <select id="category" class="w-full p-2 border rounded-lg" required>
+      <option value="">Select Category</option>
+      <option value="cancelled">Class Cancelled</option>
+      <option value="time-change">Class Time Changed</option>
+      <option value="event">Special Event</option>
+    </select>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700">Post Announcement</button>
+  </form>
+</div>
+
+<!-- Announcements List -->
+<div id="announcement-list" class="space-y-4">
+  <div class="bg-gray shadow-lg rounded-2xl p-4 border-l-4 border-red-500">
+    <h2 class="text-xl font-semibold text-gray-800">Class Cancelled</h2>
+    <p class="text-gray-600">The IoT class scheduled on <b>20th Sept, 10:00 AM</b> has been cancelled due to faculty unavailability.</p>
+    <span class="text-sm text-gray-500">Posted on: 19th Sept 2025</span>
+  </div>
+
+  <div class="bg-gray shadow-lg rounded-2xl p-4 border-l-4 border-yellow-500">
+    <h2 class="text-xl font-semibold text-gray-800">Class Timing Changed</h2>
+    <p class="text-gray-600">Aml class will now be held at <b>2:00 PM instead of 11:00 AM</b> on 21st Sept.</p>
+    <span class="text-sm text-gray-500">Posted on: 19th Sept 2025</span>
+  </div>
+
+  <div class="bg-gray shadow-lg rounded-2xl p-4 border-l-4 border-green-500">
+    <h2 class="text-xl font-semibold text-gray-800">Special Seminar</h2>
+    <p class="text-gray-600">A guest lecture on <b>Artificial Intelligence</b> will be conducted in the mph hall by <b>RP yadav sir</b> on <b>25th Sept, 12:00 PM</b>.</p>
+    <span class="text-sm text-gray-500">Posted on: 18th Sept 2025</span>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>
