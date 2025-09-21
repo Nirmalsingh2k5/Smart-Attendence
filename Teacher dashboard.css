@@ -1,17 +1,29 @@
 /* General Body and Layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4f7fa;
-    display: flex; /* Using flexbox for main layout */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%); /* Light, vibrant background */
+    display: flex;
     min-height: 100vh;
+    color: #333;
+}
+
+/* Glassmorphism Base Styles */
+.glass-effect {
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-radius: 15px; /* Softer rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
 }
 
 /* Header */
 .main-header {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent for header */
+    backdrop-filter: blur(15px);
     padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     position: fixed;
@@ -25,34 +37,36 @@ body {
 }
 
 .profile-logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 35px; /* Slightly larger logo */
+    height: 35px;
+    margin-right: 12px;
 }
 
 .app-name {
-    font-weight: 900;
-    color: #333;
-    font-size: 1.2em;
+    font-weight: 800; /* Bolder */
+    color: #2c3e50; /* Darker text for contrast */
+    font-size: 1.3em; /* Slightly larger */
 }
 
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
-    background-color: #2c3e50;
+    background-color: rgba(44, 62, 80, 0.85); /* Darker, semi-transparent for sidebar */
+    backdrop-filter: blur(12px);
     color: #ecf0f1;
-    padding-top: 80px; /* Space for fixed header */
+    padding-top: 80px;
     position: fixed;
     height: 100%;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s ease;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .sidebar-title {
     text-align: center;
     margin-bottom: 30px;
     color: #ffffff;
-    font-size: 1.5em;
+    font-size: 1.6em;
+    font-weight: 700;
 }
 
 .sidebar ul {
@@ -65,73 +79,82 @@ body {
     padding: 15px 20px;
     color: #ecf0f1;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     border-left: 5px solid transparent;
+    font-size: 1.05em;
+    font-weight: 500;
 }
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-    background-color: #34495e;
+    background-color: rgba(52, 152, 219, 0.8); /* Vibrant blue hover/active with transparency */
     border-left: 5px solid #3498db;
     color: #ffffff;
 }
 
 /* Main Content Area */
 .main-content {
-    margin-left: 250px; /* Space for sidebar */
-    padding: 90px 20px 20px 20px; /* Space for header and general padding */
+    margin-left: 250px;
+    padding: 100px 30px 30px 30px; /* Increased padding */
     flex-grow: 1;
-    background-color: #f4f7fa;
+    color: #333; /* Dark text for readability on light glass */
 }
 
 .section-title {
-    color: #333;
-    margin-bottom: 25px;
-    font-size: 2em;
+    color: #2c3e50; /* Darker heading */
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Larger heading */
+    font-weight: 700;
 }
 
 .timestamp {
-    background-color: #ffffff;
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    /* Applying glass effect here */
+    @extend .glass-effect; /* This is a placeholder, you'd apply these properties directly or via a mixin */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 18px 25px;
+    margin-bottom: 35px;
     color: #555;
-    font-size: 0.9em;
+    font-size: 1em;
+    display: inline-block; /* To fit content */
 }
 
 /* Dashboard Stats Cards */
 .dashboard-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
+    gap: 30px; /* Increased gap */
+    margin-bottom: 50px;
 }
 
 .stat-card {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px; /* Increased padding */
     text-align: center;
+    display: flex; /* For better alignment of content */
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .stat-card h3 {
     color: #555;
     margin-top: 0;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .stat-card h4 {
     color: #777;
     margin-bottom: 15px;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 .stat-number {
-    font-size: 2.5em;
-    font-weight: bold;
+    font-size: 3em; /* Larger numbers */
+    font-weight: 900;
     margin-top: 15px;
+    line-height: 1; /* Adjust line height for large numbers */
 }
 
 .total-students-num { color: #28a745; } /* Green */
@@ -142,7 +165,7 @@ body {
 .attendance-summary {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .attendance-item {
@@ -151,23 +174,25 @@ body {
 
 .attendance-item span {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: #777;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
 /* Camera Section */
 .camera-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* Applying glass effect here */
+    @extend .glass-effect;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px; /* Increased padding */
     text-align: center;
 }
 
 .camera-section h2 {
-    color: #333;
-    margin-bottom: 25px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
 }
 
 .camera-upload-area {
@@ -177,183 +202,14 @@ body {
 }
 
 .camera-preview {
-    width: 250px;
-    height: 180px;
+    width: 300px; /* Larger preview */
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    display: none; /* Hidden by default, shown when image is available */
-}
-
-.camera-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
-    display: inline-block; /* To allow padding/margins */
-}
-
-.camera-btn:hover {
-    background-color: #0056b3;
-}
-
-#cameraInput {
-    display: none; /* Hide the default file input */
-}
-
-/* Manual Attendance Table */
-.manual-attendance-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.manual-attendance-table-container {
-    overflow-x: auto; /* For responsive tables */
-}
-
-.manual-attendance-section table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.manual-attendance-section caption {
-    margin-bottom: 15px;
-    font-style: italic;
-    color: #666;
-    text-align: left;
-}
-
-.manual-attendance-section th,
-.manual-attendance-section td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
-}
-
-.manual-attendance-section th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
-}
-
-.manual-attendance-section tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.manual-attendance-section tr:hover {
-    background-color: #f1f1f1;
-}
-
-.manual-attendance-section td label {
-    margin-right: 15px;
-    white-space: nowrap; /* Keep radio buttons and text on one line */
-}
-
-.manual-attendance-section td input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* Modal Styling */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.modal-content {
-    background-color: #ffffff;
-    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-}
-
-.modal-content h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.5em;
-}
-
-.modal-content select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.close-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.close-btn:hover {
-    background-color: #218838;
-}
-
-/* Utility Classes */
-.hidden {
-    display: none !important;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 80px; /* Collapse sidebar */
-        overflow-x: hidden;
-    }
-
-    .sidebar .sidebar-title, .sidebar ul li a span {
-        display: none; /* Hide text, only show icons */
-    }
-
-    .sidebar ul li a {
-        text-align: center;
-    }
-    .sidebar ul li a::before { /* For icons */
-        font-size: 1.5em;
-        margin-right: 0;
-    }
-
-    .main-content {
-        margin-left: 80px; /* Adjust main content margin */
-    }
-
-    .dashboard-stats {
-        grid-template-columns: 1fr; /* Stack cards on small screens */
-    }
-
-    .stat-card {
-        padding: 20px;
-    }
-
-    .stat-number {
-        font-size: 2em;
-    }
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border for preview */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: none;
 }
 
 .camera-btn {
@@ -523,7 +379,7 @@ body {
 /* Responsive Adjustments (Adjusted for Glassmorphism) */
 @media (max-width: 768px) {
     .sidebar {
-        width: 150px; /* More compact */
+        width: 70px; /* More compact */
         overflow-x: hidden;
     }
 
@@ -548,36 +404,6 @@ body {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    /* font-size: 14px; moved or removed to fix syntax error */
-  }
-
-
-/* Show modal when checkbox checked */
-#subjectToggle:checked + .modal {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Modal Content */
-.modal-content {
-  background: rgba(255, 255, 255, 0.292);
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 300px;
-}
-
-.modal-content h3 {
-  margin-bottom: 15px;
-}
-
-select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
 
     .stat-card, .camera-section, .manual-attendance-section {
         padding: 25px;
@@ -587,54 +413,8 @@ select {
         font-size: 2.5em;
     }
 
-    .camera-preview {
-        width: 90%;
-        height: 150px;
+        .camera-preview {
+            width: 90%;
+            height: 150px;
+        }
     }
-
-/* Close Button */
-.close-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #7f5af0;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-footer {
-  height: 70px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer ul {
-  list-style: none;
-  display: flex;
-  gap: 30px; /* space between links */
-  margin: 0;
-  padding: 0;
-}
-
-footer li a {
-  text-decoration: none;
-  color: #000;
-  font-size: 16px;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-footer li a:hover {
-  text-decoration: underline;
-  color: #0193fc; /* optional hover color */
-}
-
-.fbox2 {
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0);
-}
