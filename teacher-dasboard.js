@@ -112,15 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Update Date & Time
-    function updateDateTime() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        document.getElementById('attendanceTime').textContent = `📅 Date & Time: ${now.toLocaleDateString('en-IN', options)}`;
-    }
-    setInterval(updateDateTime, 1000); // Update every second
-    updateDateTime(); // Call immediately to set initial time
-});
+// (Removed duplicate updateDateTime function and extra closing bracket)
 
     // Update Date & Time
     function updateDateTime() {
