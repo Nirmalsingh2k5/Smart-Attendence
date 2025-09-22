@@ -2,25 +2,33 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%); /* Light, vibrant background */
+    /* Light, vibrant background */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
     display: flex;
     min-height: 100vh;
     color: #333;
 }
 
-/* Glassmorphism Base Styles */
+/* Glassmorphism Base Styles - Now a standard class */
 .glass-effect {
-    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
-    border-radius: 15px; /* Softer rounded corners */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    background-color: rgba(255, 255, 255, 0.6);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Light border */
+    border-radius: 15px;
+    /* Softer rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: all 0.3s ease;
+    /* Smooth transitions for hover effects */
 }
 
 /* Header */
 .main-header {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent for header */
+    /* Slightly less transparent for header */
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(15px);
     padding: 15px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -37,21 +45,26 @@ body {
 }
 
 .profile-logo {
-    width: 35px; /* Slightly larger logo */
+    /* Slightly larger logo */
+    width: 35px;
     height: 35px;
     margin-right: 12px;
 }
 
 .app-name {
-    font-weight: 800; /* Bolder */
-    color: #2c3e50; /* Darker text for contrast */
-    font-size: 1.3em; /* Slightly larger */
+    /* Bolder */
+    font-weight: 800;
+    /* Darker text for contrast */
+    color: #2c3e50;
+    /* Slightly larger */
+    font-size: 1.3em;
 }
 
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
-    background-color: rgba(44, 62, 80, 0.85); /* Darker, semi-transparent for sidebar */
+    /* Darker, semi-transparent for sidebar */
+    background-color: rgba(44, 62, 80, 0.85);
     backdrop-filter: blur(12px);
     color: #ecf0f1;
     padding-top: 80px;
@@ -87,7 +100,8 @@ body {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-    background-color: rgba(52, 152, 219, 0.8); /* Vibrant blue hover/active with transparency */
+    /* Vibrant blue hover/active with transparency */
+    background-color: rgba(52, 152, 219, 0.8);
     border-left: 5px solid #3498db;
     color: #ffffff;
 }
@@ -95,44 +109,60 @@ body {
 /* Main Content Area */
 .main-content {
     margin-left: 250px;
-    padding: 100px 30px 30px 30px; /* Increased padding */
+    /* Increased padding */
+    padding: 100px 30px 30px 30px;
     flex-grow: 1;
-    color: #333; /* Dark text for readability on light glass */
+    /* Dark text for readability on light glass */
+    color: #333;
 }
 
 .section-title {
-    color: #2c3e50; /* Darker heading */
+    /* Darker heading */
+    color: #2c3e50;
     margin-bottom: 30px;
-    font-size: 2.5em; /* Larger heading */
+    /* Larger heading */
+    font-size: 2.5em;
     font-weight: 700;
 }
 
 .timestamp {
-    /* Applying glass effect here */
-    @extend .glass-effect; /* This is a placeholder, you'd apply these properties directly or via a mixin */
+    /* Applying glass effect properties directly (replaces @extend) */
     background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     padding: 18px 25px;
     margin-bottom: 35px;
     color: #555;
     font-size: 1em;
-    display: inline-block; /* To fit content */
+    /* To fit content */
+    display: inline-block;
 }
 
 /* Dashboard Stats Cards */
 .dashboard-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; /* Increased gap */
+    /* Increased gap */
+    gap: 30px;
     margin-bottom: 50px;
 }
 
 .stat-card {
-    /* Applying glass effect here */
-    @extend .glass-effect;
+    /* Applying glass effect properties directly (replaces @extend) */
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 30px; /* Increased padding */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Increased padding */
+    padding: 30px;
     text-align: center;
-    display: flex; /* For better alignment of content */
+    /* For better alignment of content */
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -150,17 +180,49 @@ body {
     font-size: 1em;
 }
 
-.stat-number {
-    font-size: 3em; /* Larger numbers */
-    font-weight: 900;
-    margin-top: 15px;
-    line-height: 1; /* Adjust line height for large numbers */
+/* New: Circle around number */
+.stat-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Circular shape */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 15px auto 10px auto;
+    /* White background with a subtle border/shadow for depth */
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.6), 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.total-students-num { color: #28a745; } /* Green */
-.present-num { color: #007bff; } /* Blue */
-.absent-num { color: #dc3545; } /* Red */
-.low-attendance-num { color: #ffc107; } /* Yellow/Orange */
+.stat-number {
+    /* Larger numbers */
+    font-size: 2.5em;
+    font-weight: 900;
+    line-height: 1;
+    /* Center inside the circle */
+    margin: 0;
+}
+
+.total-students-num {
+    color: #28a745;
+    /* Green */
+}
+
+.present-num {
+    color: #007bff;
+    /* Blue */
+}
+
+.absent-num {
+    color: #dc3545;
+    /* Red */
+}
+
+.low-attendance-num {
+    color: #ffc107;
+    /* Yellow/Orange */
+}
 
 .attendance-summary {
     display: flex;
@@ -182,11 +244,18 @@ body {
 
 /* Camera Section */
 .camera-section {
-    /* Applying glass effect here */
-    @extend .glass-effect;
+    /* Applying glass effect properties directly (replaces @extend) */
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 40px; /* Increased padding */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Increased padding */
+    padding: 40px;
     text-align: center;
+    margin-bottom: 30px;
+    /* Added margin-bottom for separation */
 }
 
 .camera-section h2 {
@@ -202,18 +271,21 @@ body {
 }
 
 .camera-preview {
-    width: 300px; /* Larger preview */
+    /* Larger preview */
+    width: 300px;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border for preview */
+    /* Lighter border for preview */
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: none;
 }
 
 .camera-btn {
-    background-color: #3498db; /* Blue button */
+    /* Blue button */
+    background-color: #3498db;
     color: white;
     padding: 14px 30px;
     border-radius: 8px;
@@ -226,8 +298,10 @@ body {
 }
 
 .camera-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    /* Darker blue on hover */
+    background-color: #2980b9;
+    /* Slight lift effect */
+    transform: translateY(-2px);
 }
 
 #cameraInput {
@@ -236,9 +310,13 @@ body {
 
 /* Manual Attendance Table */
 .manual-attendance-section {
-    /* Applying glass effect here */
-    @extend .glass-effect;
+    /* Applying glass effect properties directly (replaces @extend) */
     background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     padding: 35px;
 }
 
@@ -248,11 +326,14 @@ body {
 
 .manual-attendance-section table {
     width: 100%;
-    border-collapse: separate; /* Use separate for rounded borders */
+    /* Use separate for rounded borders */
+    border-collapse: separate;
     border-spacing: 0;
     margin-top: 25px;
-    border-radius: 10px; /* Rounded corners for the whole table */
-    overflow: hidden; /* Ensures corners are clipped */
+    /* Rounded corners for the whole table */
+    border-radius: 10px;
+    /* Ensures corners are clipped */
+    overflow: hidden;
 }
 
 .manual-attendance-section caption {
@@ -267,29 +348,55 @@ body {
 .manual-attendance-section td {
     padding: 15px 20px;
     text-align: left;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Lighter border */
-    border-right: 1px solid rgba(0, 0, 0, 0.03); /* Vertical border for separation */
+    /* Lighter border */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Vertical border for separation */
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .manual-attendance-section th {
-    background-color: rgba(240, 240, 240, 0.7); /* Lighter header background */
+    /* Lighter header background */
+    background-color: rgba(240, 240, 240, 0.7);
     font-weight: 600;
     color: #444;
 }
-.manual-attendance-section th:first-child { border-top-left-radius: 10px; }
-.manual-attendance-section th:last-child { border-top-right-radius: 10px; border-right: none; }
+
+.manual-attendance-section th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.manual-attendance-section th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
 
 
 .manual-attendance-section tr:nth-child(even) {
-    background-color: rgba(249, 249, 249, 0.5); /* Slightly different background for even rows */
+    /* Slightly different background for even rows */
+    background-color: rgba(249, 249, 249, 0.5);
 }
 
 .manual-attendance-section tr:hover {
-    background-color: rgba(240, 240, 240, 0.7); /* Glass-like hover */
+    /* Glass-like hover */
+    background-color: rgba(240, 240, 240, 0.7);
 }
-.manual-attendance-section tr:last-child td:first-child { border-bottom-left-radius: 10px; }
-.manual-attendance-section tr:last-child td:last-child { border-bottom-right-radius: 10px; border-right: none;}
-.manual-attendance-section td:last-child { border-right: none; }
+
+.manual-attendance-section tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+    border-bottom: none;
+    /* Removed redundant border */
+}
+
+.manual-attendance-section tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+    border-right: none;
+    border-bottom: none;
+    /* Removed redundant border */
+}
+
+.manual-attendance-section td:last-child {
+    border-right: none;
+}
 
 
 .manual-attendance-section td label {
@@ -301,7 +408,8 @@ body {
 
 .manual-attendance-section td input[type="radio"] {
     margin-right: 8px;
-    transform: scale(1.1); /* Slightly larger radio buttons */
+    /* Slightly larger radio buttons */
+    transform: scale(1.1);
 }
 
 /* Modal Styling */
@@ -311,7 +419,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
+    /* Lighter overlay */
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,9 +428,14 @@ body {
 }
 
 .modal-content {
-    /* Applying glass effect here */
-    @extend .glass-effect;
-    background-color: rgba(255, 255, 255, 0.9); /* More opaque for modal */
+    /* Applying glass effect properties directly (replaces @extend) */
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* More opaque for modal */
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -344,7 +458,8 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-size: 1.1em;
-    background-color: rgba(255, 255, 255, 0.8); /* Glass-like select */
+    /* Glass-like select */
+    background-color: rgba(255, 255, 255, 0.8);
     color: #333;
 }
 
@@ -379,25 +494,32 @@ body {
 /* Responsive Adjustments (Adjusted for Glassmorphism) */
 @media (max-width: 768px) {
     .sidebar {
-        width: 70px; /* More compact */
+        /* More compact */
+        width: 70px;
         overflow-x: hidden;
     }
 
-    .sidebar-title, .sidebar ul li a span {
+    .sidebar-title,
+    .sidebar ul li a span {
         display: none;
     }
 
     .sidebar ul li a {
         text-align: center;
-        padding: 15px 0; /* Adjust padding */
+        /* Adjust padding */
+        padding: 15px 0;
     }
-    .sidebar ul li a::before { /* For icons (assuming you use icon fonts or SVGs) */
-        font-size: 1.8em; /* Larger icons */
+
+    .sidebar ul li a::before {
+        /* For icons (assuming you use icon fonts or SVGs) */
+        font-size: 1.8em;
+        /* Larger icons */
     }
 
     .main-content {
         margin-left: 70px;
-        padding: 90px 15px 15px 15px; /* Adjust padding */
+        /* Adjust padding */
+        padding: 90px 15px 15px 15px;
     }
 
     .dashboard-stats {
@@ -405,7 +527,9 @@ body {
         gap: 20px;
     }
 
-    .stat-card, .camera-section, .manual-attendance-section {
+    .stat-card,
+    .camera-section,
+    .manual-attendance-section {
         padding: 25px;
     }
 
@@ -413,8 +537,8 @@ body {
         font-size: 2.5em;
     }
 
-        .camera-preview {
-            width: 90%;
-            height: 150px;
-        }
+    .camera-preview {
+        width: 90%;
+        height: 150px;
     }
+}

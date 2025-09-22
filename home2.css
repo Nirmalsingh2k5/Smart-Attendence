@@ -7,20 +7,25 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  background-color: linear-gradient(135deg, #b7c2d3ee, #bac9d0f3);
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .Navbar {
-  background: linear-gradient(90deg, #7f5af0, #00d4ff);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  );
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   padding-left: 20px;
-  color: white;
+  color: rgb(1, 1, 1);
 }
 
 
