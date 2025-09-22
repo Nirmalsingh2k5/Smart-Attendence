@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendance - Profile Settings</title>
+  <link rel="stylesheet" href="profile setting.css">
+
+      <div class="main">
+        <div class="profile-card">
+            <h1>Profile Settings</h1>
+            <form>
+               
+                <div class="form-group profile-pic">
+                    <img src="https://placehold.co/128x128/e5e7eb/4b5563?text=Profile" alt="Profile Picture" id="preview">
+                    <label for="uploadPic" class="upload-btn">
+                        <ion-icon name="camera-outline"></ion-icon> Upload Picture
+                    </label>
+                    <input type="file" id="uploadPic" accept="image/*" onchange="previewImage(event)">
+                </div>
+    
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label><ion-icon name="create-outline"></ion-icon> Full Name</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+    
+                <!-- Update Email -->
+                <div class="form-group">
+                    <label><ion-icon name="mail-outline"></ion-icon> Email</label>
+                    <input type="email" placeholder="Enter your email">
+                </div>
+    
+                <!-- Update Password -->
+                <div class="form-group">
+                    <label><ion-icon name="lock-closed-outline"></ion-icon> Password</label>
+                    <input type="password" placeholder="Enter new password">
+                </div>
+    
+                <!-- Submit -->
+                <button type="submit" class="save-btn">
+                    <ion-icon name="save-outline"></ion-icon> Save Changes
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('preview');
+                output.src = reader.result;
+            };
+            if (event.target.files && event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
