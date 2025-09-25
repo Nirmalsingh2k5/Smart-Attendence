@@ -542,3 +542,75 @@ body {
         height: 150px;
     }
 }
+.ai-summary-card {
+  margin-top: 36px;
+  margin-bottom: 36px;
+  padding: 38px 24px 30px 24px;
+  max-width: 450px;
+  background: linear-gradient(135deg, #fff6ff 70%, #f6e8fe 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 28px #a882cf23, 0 1.5px 0.5px #ede1ff;
+  text-align: center;
+  border: 1.5px solid #eadefa;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.2s;
+  animation: fadeInSummaryCard 0.9s cubic-bezier(.34,1.56,.64,1) backwards;
+}
+
+/* Subtle Fade In Animation */
+@keyframes fadeInSummaryCard {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ai-summary-card h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #722ec8;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#ai-summary-text {
+  color: #452b53;
+  font-size: 1.15em;
+  margin-bottom: 23px;
+  min-height: 38px;
+  font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: .1px;
+  line-height: 1.42;
+  transition: color 0.28s;
+}
+
+#summarizeBtn {
+  background: linear-gradient(90deg, #9444cd 62%, #ed81ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 17px 0;
+  font-size: 1.18em;
+  font-weight: 600;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 330px;
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 2px 10px #e1cdf9be, 0 1px 0 #d5afea;
+  letter-spacing: 0.02em;
+  transition: box-shadow 0.22s, background 0.24s, color 0.21s;
+}
+
+#summarizeBtn:hover, #summarizeBtn:focus {
+  background: linear-gradient(90deg, #a461db 50%, #dab0fd 100%);
+  color: #33213e;
+  box-shadow: 0 6px 24px #e1cdf9d0, 0 1px 0 #c7ace2;
+}
+

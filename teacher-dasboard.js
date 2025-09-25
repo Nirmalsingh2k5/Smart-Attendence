@@ -123,3 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateDateTime, 1000); // Update every second
     updateDateTime(); // Call immediately to set initial time
 });
+

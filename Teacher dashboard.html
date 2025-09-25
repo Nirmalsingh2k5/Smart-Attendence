@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher Dashboard | Smart Attendance</title>
     <link rel="stylesheet" href="Teacher dashboard.css" />
 </head>
+
 <body>
     <header class="main-header">
         <div class="profile">
@@ -23,13 +25,8 @@
             <li><a href="#" id="classesLink">📚 Classes</a></li>
             <li><a href="#" id="reportsLink">📝 Reports</a></li>
             <li><a href="#" id="announcementsLink">📢 Announcements</a></li>
-<<<<<<< HEAD
             <li><a href="#" id="settingsLink">⚙️ Settings</a></li>
-            <li><a href="logout.html" id="logoutLink">🚪 Logout</a></li>
-=======
-            <li><a href="#"id="settingsLink">⚙️ Settings</a></li>
             <li><a href="home2.html" id="logoutLink">🚪 Logout</a></li>
->>>>>>> af20e8824e4d86ed3baef939f1d26b6f3b3eb1ad
         </ul>
     </nav>
 
@@ -78,9 +75,62 @@
                 </div>
             </div>
         </section>
+        <!-- Camera section khatam hone ke turant niche: -->
+        <div class="ai-summary-card"
+            style="max-width:480px; margin:30px auto 0 auto; background:#fff6ff; border-radius:16px; box-shadow:0 4px 16px #e7d0fa81; padding:32px 18px; text-align:center;">
+            <h3 style="color:#722ec8;">AI Attendance Summary</h3>
+            <div id="ai-summary-text" style="min-height:40px; color:#4d4d4d; margin-bottom:18px;">
+                Click "Summarize Attendance" to get a smart attendance summary.
+            </div>
+            <button id="summarizeBtn" class="camera-btn"
+                style="background:#9444cd; width:90%; max-width:330px; margin:auto;display:block;">Summarize
+                Attendance</button>
+        </div>
+        
 
-        <section id="manualAttendanceSection" class="manual-attendance-section hidden">
-            <h2 class="section-title">Mark Attendance (Manually)</h2>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const summarizeBtn = document.getElementById('summarizeBtn');
+            const summaryText = document.getElementById('ai-summary-text');
+
+            if (summarizeBtn) {
+                summarizeBtn.addEventListener('click', () => {
+                    const total = document.querySelector('.total-students-num')?.textContent || "0";
+                    const present = document.querySelector('.present-num')?.textContent || "0";
+                    const absent = document.querySelector('.absent-num')?.textContent || "0";
+
+                    const percent = Math.round((parseInt(present) / parseInt(total)) * 100);
+
+                    // Different AI style summary templates
+                    let templates = [];
+                    if (percent >= 90) {
+                        templates = [
+                            `🔥 Fantastic! Today’s attendance rate is <b>${percent}%</b> with only ${absent} students absent. Phenomenal discipline!`,
+                            `👏 Superb! Only ${absent} students missed out. This class is setting a great example.`,
+                            `😊 Excellent turnout - keep supporting each other. Attendance: <b>${present}/${total}</b>.`
+                        ];
+                    } else if (percent >= 75) {
+                        templates = [
+                            `👍 Good attendance today (<b>${percent}%</b>), ${absent} students were absent. Maybe send a reminder!`,
+                            `⏳ Decent turnout, but ${absent} could improve! Stay motivated, class!`,
+                            `⚡ Attendance is <b>${percent}%</b>. Let's push for even better next time!`
+                        ];
+                    } else {
+                        templates = [
+                            `⚠️ Attention needed! Only ${present} out of ${total} present (${percent}%). Low attendance trend. Please address.`,
+                            `📉 Low attendance alert! Only ${percent}% turnout. Absentees: <b>${absent}</b>. Maybe discuss reasons with students.`,
+                            `🧐 Attendance is <b>${percent}%</b>. Please check in with absentees and encourage regular class.`
+                        ];
+                    }
+                    const summary = templates[Math.floor(Math.random() * templates.length)];
+                    summaryText.innerHTML = summary;
+                });
+            }
+        });
+    </script>
+
+    <section id="manualAttendanceSection" class="manual-attendance-section hidden">
+        <h2 class="section-title">Mark Attendance (Manually)</h2>
             <div class="manual-attendance-table-container">
                 <table>
                     <caption>Quickly mark attendance for individual students</caption>
@@ -108,7 +158,7 @@
                                 <label><input type="radio" name="Nirmal" value="Absent" /> Absent</label>
                             </td>
                         </tr>
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </section>
@@ -130,7 +180,7 @@
             <p>Content for Announcements goes here...</p>
         </section>
         <section id="settingsSection" class="content-section hidden">
-            <h2 ></h2>Settings</h2>
+            <h2></h2>Settings</h2>
             <p>Content for Settings goes here...</p>
         </section>
 
@@ -149,5 +199,10 @@
         </div>
     </div>
 
-    <script src="teacher-dasboard.js"></script> </body>
+
+
+
+    <script src="teacher-dasboard.js"></script>
+</body>
+
 </html>
