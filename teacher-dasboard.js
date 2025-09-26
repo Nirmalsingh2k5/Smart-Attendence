@@ -318,8 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-
-
     // --- 8. INITIAL PAGE LOAD ---
 
     showSection('dashboardSection');

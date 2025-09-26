@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
-    display: flex;
+    /* display: flex; */
     min-height: 100vh;
     color: #333;
 }
@@ -484,5 +484,51 @@ body {
 }
 
 .modal-close-btn:hover {
-    color: #333;
+    color: #f0eded;
+}
+/* --- Footer Styling --- */
+.main-footer-bottom {
+    background-color: rgba(255, 255, 255, 0.8);; /* Matches sidebar color */
+    color: #000203;
+    padding: 20px 30px;
+    margin-left: 250px; /* Aligns with the main content area */
+    transition: margin-left 0.3s ease; /* For smooth transition with sidebar */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links li a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3498db; /* Highlight color from your sidebar links */
+}
+
+.copyright {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 768px) {
+    .main-footer-bottom {
+        margin-left: 70px; /* Matches the collapsed sidebar width */
+        padding: 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column-reverse; /* Stack items vertically */
+        gap: 15px;
+    }
 }
