@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #0f172a;
+  background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,8 @@ body {
 .nav-bar {
   height: 80px;
   width: 100%;
-  background: linear-gradient(90deg, #7f5af0, #00d4ff);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -42,17 +43,18 @@ body {
 
 /* Form Container */
 .form-container {
-  margin-top: 50px;
-  background: #1e293b;
+  margin-top: 100px;
+  background: #fdfeff;
   padding: 30px 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   width: 350px;
+  height: 400px;
   text-align: center;
 }
 
 .form-container h2 {
-  color: cyan;
+  color: rgba(255, 0, 81, 0.812);
   margin-bottom: 20px;
 }
 
@@ -63,7 +65,7 @@ body {
 
 .form-group label {
   display: block;
-  color: #ddd;
+  color: #030000;
   font-size: 14px;
   margin-bottom: 5px;
 }
@@ -82,18 +84,18 @@ body {
 
 .form-group a {
   font-size: 13px;
-  color: #7f5af0;
+  color: #fb0000;
   text-decoration: none;
 
 }
 
 .form-group p {
   font-size: 14px;
-  color: #aaa;
+  color: #040000;
 }
 
 .form-group p a {
-  color: #00d4ff;
+  color: #ff0000;
   text-decoration: none;
 }
 
@@ -101,7 +103,7 @@ body {
 .btn {
   width: 100%;
   padding: 10px;
-  background: linear-gradient(90deg, #7f5af0, #00d4ff);
+  background: linear-gradient(135deg, #e0f2f7 100%, #c1e4f4 100%);
   color: white;
   font-weight: bold;
   border: none;
@@ -113,5 +115,5 @@ body {
   opacity: 0.7;
 }
 .form-group a:hover {
-    color: cyan;
+    color: rgb(225, 0, 94);
 }

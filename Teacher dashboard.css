@@ -2,25 +2,15 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%); /* Light, vibrant background */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
     display: flex;
     min-height: 100vh;
     color: #333;
 }
 
-/* Glassmorphism Base Styles */
-.glass-effect {
-    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
-    border-radius: 15px; /* Softer rounded corners */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transitions for hover effects */
-}
-
 /* Header */
 .main-header {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent for header */
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(15px);
     padding: 15px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -37,28 +27,28 @@ body {
 }
 
 .profile-logo {
-    width: 35px; /* Slightly larger logo */
+    width: 35px;
     height: 35px;
     margin-right: 12px;
 }
 
 .app-name {
-    font-weight: 800; /* Bolder */
-    color: #2c3e50; /* Darker text for contrast */
-    font-size: 1.3em; /* Slightly larger */
+    font-weight: 800;
+    color: #2c3e50;
+    font-size: 1.3em;
 }
 
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
-    background-color: rgba(44, 62, 80, 0.85); /* Darker, semi-transparent for sidebar */
+    background-color: rgba(44, 62, 80, 0.85);
     backdrop-filter: blur(12px);
     color: #ecf0f1;
     padding-top: 80px;
     position: fixed;
     height: 100%;
     box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s ease, background-color 0.3s ease;
+    transition: width 0.3s ease;
 }
 
 .sidebar-title {
@@ -87,7 +77,7 @@ body {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-    background-color: rgba(52, 152, 219, 0.8); /* Vibrant blue hover/active with transparency */
+    background-color: rgba(52, 152, 219, 0.8);
     border-left: 5px solid #3498db;
     color: #ffffff;
 }
@@ -95,46 +85,50 @@ body {
 /* Main Content Area */
 .main-content {
     margin-left: 250px;
-    padding: 100px 30px 30px 30px; /* Increased padding */
+    padding: 100px 30px 30px 30px;
     flex-grow: 1;
-    color: #333; /* Dark text for readability on light glass */
+    color: #333;
 }
 
 .section-title {
-    color: #2c3e50; /* Darker heading */
+    color: #2c3e50;
     margin-bottom: 30px;
-    font-size: 2.5em; /* Larger heading */
+    font-size: 2.5em;
     font-weight: 700;
 }
 
 .timestamp {
-    /* Applying glass effect here */
-    @extend .glass-effect; /* This is a placeholder, you'd apply these properties directly or via a mixin */
     background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     padding: 18px 25px;
     margin-bottom: 35px;
     color: #555;
     font-size: 1em;
-    display: inline-block; /* To fit content */
+    display: inline-block;
 }
 
 /* Dashboard Stats Cards */
 .dashboard-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; /* Increased gap */
+    gap: 30px;
     margin-bottom: 50px;
 }
 
 .stat-card {
-    /* Applying glass effect here */
-    @extend .glass-effect;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 30px; /* Increased padding */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px;
     text-align: center;
-    display: flex; /* For better alignment of content */
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .stat-card h3 {
@@ -151,21 +145,21 @@ body {
 }
 
 .stat-number {
-    font-size: 3em; /* Larger numbers */
+    font-size: 3em;
     font-weight: 900;
-    margin-top: 15px;
-    line-height: 1; /* Adjust line height for large numbers */
+    line-height: 1;
 }
 
-.total-students-num { color: #28a745; } /* Green */
-.present-num { color: #007bff; } /* Blue */
-.absent-num { color: #dc3545; } /* Red */
-.low-attendance-num { color: #ffc107; } /* Yellow/Orange */
+.total-students-num { color: #28a745; }
+.present-num { color: #007bff; }
+.absent-num { color: #dc3545; }
+.low-attendance-num { color: #ffc107; }
 
 .attendance-summary {
     display: flex;
     justify-content: space-around;
-    margin-top: 25px;
+    align-items: center;
+    margin-top: 15px;
 }
 
 .attendance-item {
@@ -182,10 +176,12 @@ body {
 
 /* Camera Section */
 .camera-section {
-    /* Applying glass effect here */
-    @extend .glass-effect;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 40px; /* Increased padding */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 40px;
     text-align: center;
 }
 
@@ -195,25 +191,19 @@ body {
     font-size: 2em;
 }
 
-.camera-upload-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .camera-preview {
-    width: 300px; /* Larger preview */
+    width: 300px;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border for preview */
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: none;
 }
 
 .camera-btn {
-    background-color: #3498db; /* Blue button */
+    background-color: #3498db;
     color: white;
     padding: 14px 30px;
     border-radius: 8px;
@@ -223,22 +213,84 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-bottom: 15px;
     display: inline-block;
+    border: none;
 }
 
 .camera-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
 #cameraInput {
     display: none;
 }
 
+/* AI Summary Card */
+.ai-summary-card {
+    margin: 36px auto 0 auto;
+    padding: 38px 24px 30px 24px;
+    max-width: 480px;
+    background: linear-gradient(135deg, #fff6ff 70%, #f6e8fe 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 28px #a882cf23, 0 1.5px 0.5px #ede1ff;
+    text-align: center;
+    border: 1.5px solid #eadefa;
+    animation: fadeInSummaryCard 0.9s cubic-bezier(.34,1.56,.64,1) backwards;
+}
+
+@keyframes fadeInSummaryCard {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ai-summary-card h3 {
+    margin: 0 0 20px 0;
+    color: #722ec8;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+#ai-summary-text {
+    color: #452b53;
+    font-size: 1.1em;
+    margin-bottom: 23px;
+    min-height: 38px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+#summarizeBtn {
+    background: linear-gradient(90deg, #9444cd 62%, #ed81ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 17px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 330px;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 2px 10px #e1cdf9be, 0 1px 0 #d5afea;
+    transition: all 0.25s ease;
+}
+
+#summarizeBtn:hover, #summarizeBtn:focus {
+    background: linear-gradient(90deg, #a461db 50%, #dab0fd 100%);
+    color: #33213e;
+    box-shadow: 0 6px 24px #e1cdf9d0, 0 1px 0 #c7ace2;
+    transform: translateY(-2px);
+}
+
+
 /* Manual Attendance Table */
 .manual-attendance-section {
-    /* Applying glass effect here */
-    @extend .glass-effect;
     background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     padding: 35px;
 }
 
@@ -248,60 +300,28 @@ body {
 
 .manual-attendance-section table {
     width: 100%;
-    border-collapse: separate; /* Use separate for rounded borders */
+    border-collapse: separate;
     border-spacing: 0;
     margin-top: 25px;
-    border-radius: 10px; /* Rounded corners for the whole table */
-    overflow: hidden; /* Ensures corners are clipped */
-}
-
-.manual-attendance-section caption {
-    margin-bottom: 20px;
-    font-style: italic;
-    color: #666;
-    text-align: left;
-    font-size: 1.05em;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .manual-attendance-section th,
 .manual-attendance-section td {
     padding: 15px 20px;
     text-align: left;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Lighter border */
-    border-right: 1px solid rgba(0, 0, 0, 0.03); /* Vertical border for separation */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .manual-attendance-section th {
-    background-color: rgba(240, 240, 240, 0.7); /* Lighter header background */
+    background-color: rgba(240, 240, 240, 0.7);
     font-weight: 600;
     color: #444;
 }
-.manual-attendance-section th:first-child { border-top-left-radius: 10px; }
-.manual-attendance-section th:last-child { border-top-right-radius: 10px; border-right: none; }
 
-
-.manual-attendance-section tr:nth-child(even) {
-    background-color: rgba(249, 249, 249, 0.5); /* Slightly different background for even rows */
-}
-
-.manual-attendance-section tr:hover {
-    background-color: rgba(240, 240, 240, 0.7); /* Glass-like hover */
-}
-.manual-attendance-section tr:last-child td:first-child { border-bottom-left-radius: 10px; }
-.manual-attendance-section tr:last-child td:last-child { border-bottom-right-radius: 10px; border-right: none;}
-.manual-attendance-section td:last-child { border-right: none; }
-
-
-.manual-attendance-section td label {
-    margin-right: 20px;
-    white-space: nowrap;
-    color: #555;
-    font-weight: 400;
-}
-
-.manual-attendance-section td input[type="radio"] {
-    margin-right: 8px;
-    transform: scale(1.1); /* Slightly larger radio buttons */
+.manual-attendance-section tr:last-child td {
+    border-bottom: none;
 }
 
 /* Modal Styling */
@@ -311,7 +331,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,39 +339,15 @@ body {
 }
 
 .modal-content {
-    /* Applying glass effect here */
-    @extend .glass-effect;
-    background-color: rgba(255, 255, 255, 0.9); /* More opaque for modal */
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 90%;
     max-width: 450px;
-}
-
-.modal-content h3 {
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 1.8em;
-    margin-bottom: 25px;
-}
-
-.modal-content select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    font-size: 1.1em;
-    background-color: rgba(255, 255, 255, 0.8); /* Glass-like select */
-    color: #333;
-}
-
-.modal-content select:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
 }
 
 .close-btn {
@@ -363,12 +359,6 @@ body {
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.close-btn:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
 }
 
 /* Utility Classes */
@@ -376,45 +366,123 @@ body {
     display: none !important;
 }
 
-/* Responsive Adjustments (Adjusted for Glassmorphism) */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .sidebar {
-        width: 70px; /* More compact */
-        overflow-x: hidden;
+        width: 70px;
     }
-
-    .sidebar-title, .sidebar ul li a span {
+    .sidebar-title {
         display: none;
     }
-
     .sidebar ul li a {
         text-align: center;
-        padding: 15px 0; /* Adjust padding */
+        padding: 15px 0;
     }
-    .sidebar ul li a::before { /* For icons (assuming you use icon fonts or SVGs) */
-        font-size: 1.8em; /* Larger icons */
-    }
-
     .main-content {
         margin-left: 70px;
-        padding: 90px 15px 15px 15px; /* Adjust padding */
+        padding: 90px 15px 15px 15px;
     }
-
     .dashboard-stats {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
+}
+.announcement-form-card,
+.announcement-item-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
 
-    .stat-card, .camera-section, .manual-attendance-section {
-        padding: 25px;
-    }
+.announcement-form-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 
-    .stat-number {
-        font-size: 2.5em;
-    }
+#announcementForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
 
-        .camera-preview {
-            width: 90%;
-            height: 150px;
-        }
-    }
+#announcementForm input[type="text"],
+#announcementForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#announcementForm textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#announcementForm button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+#announcementForm button:hover { background-color: #218838; }
+
+.announcement-item-card h3 { margin-top: 0; color: #3498db; }
+
+.announcement-item-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.announcement-item-card .small { font-size: 0.85em; color: #777; margin: 0; }
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-btn:hover { background-color: #c82333; }
+/* Is poore code se purane .modal-content ko REPLACE karein */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    position: relative; /* YEH LINE SABSE ZAROORI HAI */
+}
+
+/* Is code ko .modal-content ke neeche PASTE karein */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8em;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
