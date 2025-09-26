@@ -1,126 +1,327 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const dashboardLink = document.getElementById('dashboardLink');
-    const attendanceLink = document.getElementById('attendanceLink');
-    const studentsLink = document.getElementById('studentsLink');
-    const classesLink = document.getElementById('classesLink');
-    const reportsLink = document.getElementById('reportsLink');
-    const announcementsLink = document.getElementById('announcementsLink');
-    const settingsLink = document.getElementById('settingsLink');
-    const logoutLink = document.getElementById('logoutLink');
 
-    const dashboardSection = document.getElementById('dashboardSection');
-    const manualAttendanceSection = document.getElementById('manualAttendanceSection');
-    const studentsSection = document.getElementById('studentsSection');
-    const classesSection = document.getElementById('classesSection');
-    const reportsSection = document.getElementById('reportsSection');
-    const announcementsSection = document.getElementById('announcementsSection');
-    const settingsSection = document.getElementById('settingsSection');
+    // --- 1. ELEMENT SELECTIONS (All elements in one place) ---
 
-    const sections = document.querySelectorAll('.main-content .content-section, .main-content .dashboard-section');
-    const navLinks = document.querySelectorAll('.sidebar ul li a');
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+
+    const contentSections = document.querySelectorAll('.main-content > section');
+
+    const summarizeBtn = document.getElementById('summarizeBtn');
+
+    const summaryText = document.getElementById('ai-summary-text');
 
     const cameraInput = document.getElementById('cameraInput');
+
     const previewImage = document.getElementById('preview');
 
     const subjectModal = document.getElementById('subjectModal');
+
     const continueSubjectBtn = document.getElementById('continueSubjectBtn');
 
-    function hideAllSections() {
-        sections.forEach(section => section.classList.add('hidden'));
-    }
+    const modalCloseBtn = document.querySelector('.modal-close-btn');
 
-    function deactivateAllNavLinks() {
-        navLinks.forEach(link => link.classList.remove('active'));
-    }
+    const announcementForm = document.getElementById("announcementForm");
 
-    function showSection(sectionElement, linkElement) {
-        hideAllSections();
-        deactivateAllNavLinks();
-        sectionElement.classList.remove('hidden');
-        linkElement.classList.add('active');
-    }
+    const announcementList = document.querySelector(".announcement-list");
 
-    // Initial load: show dashboard
-    showSection(dashboardSection, dashboardLink);
+    const timeElement = document.getElementById('attendanceTime');
 
-    dashboardLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSection(dashboardSection, dashboardLink);
-    });
 
-    attendanceLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Here you might want to show a sub-menu or directly manual attendance
-        // For simplicity, let's show manual attendance for now
-        showSection(manualAttendanceSection, attendanceLink);
-    });
 
-    studentsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSection(studentsSection, studentsLink);
-    });
+    // --- 2. NAVIGATION LOGIC ---
 
-    classesLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        subjectModal.classList.remove('hidden'); // Show subject modal
-        // After selecting subject, you would then navigate to classesSection
-    });
+    function showSection(targetId) {
 
-    reportsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSection(reportsSection, reportsLink);
-    });
+        contentSections.forEach(section => section.classList.add('hidden'));
 
-    announcementsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSection(announcementsSection, announcementsLink);
-    });
+        sidebarLinks.forEach(link => link.classList.remove('active'));
 
-    settingsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSection(settingsSection, settingsLink);
-    });
 
-    // Logout link will just navigate to home2.html, no JS needed here.
 
-    // Camera Input Handling
-    cameraInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                previewImage.src = e.target.result;
-                previewImage.style.display = 'block'; // Show the image
-            };
-            reader.readAsDataURL(file);
-        } else {
-            previewImage.src = '';
-            previewImage.style.display = 'none'; // Hide if no file selected
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+
+            targetSection.classList.remove('hidden');
+
         }
-    });
 
-    // Modal Interaction
-    continueSubjectBtn.addEventListener('click', () => {
-        const selectedSubject = document.getElementById('subjectSelect').value;
-        if (selectedSubject !== '-- Choose Subject --') {
-            subjectModal.classList.add('hidden');
-            // You can now use `selectedSubject` to load class data, etc.
-            console.log("Selected Subject:", selectedSubject);
-            showSection(classesSection, classesLink); // Assuming you want to go to classes after selecting subject
-        } else {
-            alert('Please select a subject to continue.');
+
+
+        const activeLink = document.querySelector(`.sidebar a[id="${targetId.replace('Section', 'Link')}"]`);
+
+        if (activeLink) {
+
+            activeLink.classList.add('active');
+
+        } else if (targetId === 'manualAttendanceSection') {
+
+            document.getElementById('attendanceLink').classList.add('active');
+
         }
+
+    }
+
+
+
+    sidebarLinks.forEach(link => {
+
+        if (link.id && link.id !== 'logoutLink') {
+
+            link.addEventListener('click', (e) => {
+
+                e.preventDefault();
+
+                let targetSectionId = link.id.replace('Link', 'Section');
+
+
+
+                if (link.id === 'attendanceLink') {
+
+                    targetSectionId = 'manualAttendanceSection';
+
+                } else if (link.id === 'classesLink') {
+
+                    if (subjectModal) subjectModal.classList.remove('hidden');
+
+                    return;
+
+                }
+
+                showSection(targetSectionId);
+
+            });
+
+        }
+
     });
 
-// (Removed duplicate updateDateTime function and extra closing bracket)
 
-    // Update Date & Time
-    function updateDateTime() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        document.getElementById('attendanceTime').textContent = `📅 Date & Time: ${now.toLocaleDateString('en-IN', options)}`;
+
+    // --- 3. MODAL LOGIC ---
+
+    if (continueSubjectBtn) {
+
+        continueSubjectBtn.addEventListener('click', () => {
+
+            const selectedSubject = document.getElementById('selectSubject').value; // Corrected ID
+
+            if (selectedSubject !== '-- Choose Subject --') {
+
+                subjectModal.classList.add('hidden');
+
+                console.log("Selected Subject:", selectedSubject);
+
+                showSection('classesSection');
+
+            } else {
+
+                alert('Please select a subject to continue.');
+
+            }
+
+        });
+
     }
-    setInterval(updateDateTime, 1000); // Update every second
-    updateDateTime(); // Call immediately to set initial time
-});
 
+
+
+    if (modalCloseBtn) {
+
+        modalCloseBtn.addEventListener('click', () => {
+
+            if (subjectModal) subjectModal.classList.add('hidden');
+
+        });
+
+    }
+
+
+
+    if (subjectModal) {
+
+        subjectModal.addEventListener('click', (event) => {
+
+            if (event.target === subjectModal) {
+
+                subjectModal.classList.add('hidden');
+
+            }
+
+        });
+
+    }
+
+
+
+    // --- 4. ANNOUNCEMENT PAGE LOGIC ---
+
+    if (announcementForm) {
+
+        announcementForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const title = document.getElementById("title").value;
+
+            const message = document.getElementById("message").value;
+
+            const newCard = document.createElement("article");
+
+            newCard.className = "announcement-item-card";
+
+            const postDate = new Date().toLocaleDateString('en-GB'); // DD/MM/YYYY
+
+
+
+            newCard.innerHTML = `
+
+                <h3>${title}</h3>
+
+                <p>${message}</p>
+
+                <div class="meta">
+
+                    <p class="small">Posted on: ${postDate}</p>
+
+                    <button class="delete-btn">Delete</button>
+
+                </div>
+
+            `;
+
+            announcementList.prepend(newCard);
+
+            announcementForm.reset();
+
+        });
+
+    }
+
+
+
+    if (announcementList) {
+
+        announcementList.addEventListener('click', function (e) {
+
+            if (e.target.classList.contains('delete-btn')) {
+
+                e.target.closest('.announcement-item-card').remove();
+
+            }
+
+        });
+
+    }
+
+
+
+    // --- 5. CAMERA PREVIEW LOGIC ---
+
+    if (cameraInput) {
+
+        cameraInput.addEventListener('change', (event) => {
+
+            const file = event.target.files[0];
+
+            if (file) {
+
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+
+                    if (previewImage) {
+
+                        previewImage.src = e.target.result;
+
+                        previewImage.style.display = 'block';
+
+                    }
+
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        });
+
+    }
+
+
+
+    // --- 6. AI SUMMARY LOGIC ---
+
+    if (summarizeBtn) {
+
+        summarizeBtn.addEventListener('click', () => {
+
+            const total = document.querySelector('.total-students-num')?.textContent || "0";
+
+            const present = document.querySelector('.present-num')?.textContent || "0";
+
+            const absent = document.querySelector('.absent-num')?.textContent || "0";
+
+
+
+            if (!total || parseInt(total) === 0) {
+
+                if (summaryText) summaryText.innerHTML = "No student data available to summarize.";
+
+                return;
+
+            }
+
+            const percent = Math.round((parseInt(present) / parseInt(total)) * 100);
+
+            let templates = [];
+
+            if (percent >= 90) {
+
+                templates = [`🔥 Fantastic! Today’s attendance is <b>${percent}%</b> with only ${absent} absent.`, `👏 Superb! Only ${absent} students missed out.`];
+
+            } else if (percent >= 75) {
+
+                templates = [`👍 Good attendance (<b>${percent}%</b>), ${absent} were absent.`, `⚡ Attendance is <b>${percent}%</b>. Let's aim higher!`];
+
+            } else {
+
+                templates = [`⚠️ Attention! Only ${percent}% are present.`, `📉 Low attendance: <b>${absent}</b> students are absent.`];
+
+            }
+
+            if (summaryText) summaryText.innerHTML = templates[Math.floor(Math.random() * templates.length)];
+
+        });
+
+    }
+
+
+
+    // --- 7. DATE & TIME UPDATE ---
+
+    if (timeElement) {
+
+        function updateDateTime() {
+
+            const now = new Date();
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+
+            timeElement.textContent = `📅 ${now.toLocaleDateString('en-IN', options)}`;
+
+        }
+
+        setInterval(updateDateTime, 1000);
+
+        updateDateTime();
+
+    }
+
+
+
+    // --- 8. INITIAL PAGE LOAD ---
+
+    showSection('dashboardSection');
+
+}); 
