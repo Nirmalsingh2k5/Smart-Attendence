@@ -1,0 +1,575 @@
+/* ======================================================= */
+/* 1. STRUCTURAL AND BASE STYLES */
+/* ======================================================= */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Header */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 12px;
+}
+
+.app-name {
+    font-weight: 800;
+    color: #2c3e50;
+    font-size: 1.3em;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    background-color: rgba(44, 62, 80, 0.85);
+    backdrop-filter: blur(12px);
+    color: #ecf0f1;
+    padding-top: 80px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    z-index: 100; /* Ensure sidebar is above main content */
+}
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 5px solid transparent;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: rgba(52, 152, 219, 0.8);
+    border-left: 5px solid #3498db;
+    color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+    /* Base offset for desktop view */
+    margin-left: 250px; 
+    /* Increased bottom padding to prevent content from hiding under the fixed footer */
+    padding: 100px 30px 80px 30px; 
+    flex-grow: 1;
+    color: #333;
+    position: relative;
+}
+
+.section-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.timestamp {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 18px 25px;
+    margin-bottom: 35px;
+    color: #555;
+    font-size: 1em;
+    display: inline-block;
+}
+
+/* Dashboard Stats Cards */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-card h3 {
+    color: #555;
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.stat-card h4 {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.stat-number {
+    font-size: 3em;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.total-students-num { color: #28a745; }
+.present-num { color: #007bff; }
+.absent-num { color: #dc3545; }
+.low-attendance-num { color: #ffc107; }
+
+.attendance-summary {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.attendance-item {
+    text-align: center;
+}
+
+.attendance-item span {
+    display: block;
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Camera Section */
+.camera-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+}
+
+.camera-section h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.camera-preview {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: none;
+}
+
+.camera-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: none;
+}
+
+.camera-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#cameraInput {
+    display: none;
+}
+
+/* AI Summary Card */
+.ai-summary-card {
+    margin: 36px auto 0 auto;
+    padding: 38px 24px 30px 24px;
+    max-width: 480px;
+    background: linear-gradient(135deg, #fff6ff 70%, #f6e8fe 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 28px #a882cf23, 0 1.5px 0.5px #ede1ff;
+    text-align: center;
+    border: 1.5px solid #eadefa;
+    animation: fadeInSummaryCard 0.9s cubic-bezier(.34,1.56,.64,1) backwards;
+}
+
+@keyframes fadeInSummaryCard {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ai-summary-card h3 {
+    margin: 0 0 20px 0;
+    color: #722ec8;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+#ai-summary-text {
+    color: #452b53;
+    font-size: 1.1em;
+    margin-bottom: 23px;
+    min-height: 38px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+#summarizeBtn {
+    background: linear-gradient(90deg, #9444cd 62%, #ed81ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 17px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 330px;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 2px 10px #e1cdf9be, 0 1px 0 #d5afea;
+    transition: all 0.25s ease;
+}
+
+#summarizeBtn:hover, #summarizeBtn:focus {
+    background: linear-gradient(90deg, #a461db 50%, #dab0fd 100%);
+    color: #33213e;
+    box-shadow: 0 6px 24px #e1cdf9d0, 0 1px 0 #c7ace2;
+    transform: translateY(-2px);
+}
+
+
+/* Manual Attendance Table */
+.manual-attendance-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 35px;
+}
+
+.manual-attendance-table-container {
+    overflow-x: auto;
+}
+
+.manual-attendance-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.manual-attendance-section th,
+.manual-attendance-section td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.manual-attendance-section th {
+    background-color: rgba(240, 240, 240, 0.7);
+    font-weight: 600;
+    color: #444;
+}
+
+.manual-attendance-section tr:last-child td {
+    border-bottom: none;
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8em;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #333; /* Adjusted hover color for better contrast */
+}
+
+.close-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.announcement-form-card,
+.announcement-item-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.announcement-form-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#announcementForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+#announcementForm input[type="text"],
+#announcementForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#announcementForm textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#announcementForm button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+#announcementForm button:hover { background-color: #218838; }
+
+.announcement-item-card h3 { margin-top: 0; color: #3498db; }
+
+.announcement-item-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.announcement-item-card .small { font-size: 0.85em; color: #777; margin: 0; }
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-btn:hover { background-color: #c82333; }
+
+/* ======================================================= */
+/* 2. FOOTER STYLES */
+/* ======================================================= */
+
+/* Base Styles for the Footer Elements */
+footer {
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Footer (above copyright bar) */
+.main-footer-bottom {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e0e0e0; /* Subtle top border */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-content a {
+    color: #0a0a0a;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #f30505;
+    text-decoration: underline;
+}
+
+/* Secondary Footer (Copyright Bar) - FIXED POSITIONING FIX */
+.secondary-footer {
+    background-color: rgba(44, 62, 80, 0.85); 
+    padding: 10px 0;
+    text-align: center;
+    /* FIX: Make it fixed so it always sticks to the bottom */
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; 
+}
+
+.footer-content2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.copyright {
+    margin: 0;
+    font-size: 14px;
+    color: #eee9e9;
+}
+
+
+/* ======================================================= */
+/* 3. RESPONSIVE ADJUSTMENTS (FIXES OVERLAP) */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    /* Collapsed Sidebar View (100px) */
+    .sidebar {
+        width: 200px;
+    }
+    .sidebar-title {
+        display: none;
+    }
+    .sidebar ul li a {
+        text-align: center;
+        padding: 15px 0;
+    }
+    
+    /* Main Content Offset Adjustment */
+    .main-content {
+        margin-left: 100px; /* Matches the new collapsed sidebar width */
+        padding: 90px 15px 15px 15px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Offset Adjustment (Ensures footers start after the fixed sidebar) */
+    .main-footer-bottom,
+    .secondary-footer {
+        margin-left: 100px; 
+        width: calc(100% - 100px); /* Adjusts width to prevent horizontal scroll */
+        padding-left: 15px; /* Add some space inside */
+        padding-right: 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column-reverse; /* Stack links vertically */
+        gap: 15px;
+    }
+
+    .footer-content, 
+    .footer-content2 {
+        padding: 0;
+    }
+}

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher Dashboard | Smart Attendance</title>
-    <link rel="stylesheet" href="Teacher dashboard.css" />
+    <link rel="stylesheet" href="t2.css" />
 </head>
+
 <body>
     <header class="main-header">
         <div class="profile">
@@ -22,18 +24,23 @@
             <li><a href="#" id="studentsLink">👩‍🎓 Students</a></li>
             <li><a href="#" id="classesLink">📚 Classes</a></li>
             <li><a href="#" id="reportsLink">📝 Reports</a></li>
+<<<<<<< HEAD
             <li><a href="#" id="announcementsLink">📢 Announcements</a></li>
             <li><a href="#" id="settingsLink">⚙️ Settings</a></li>
             <li><a href="home2.html" id="logoutLink">🚪 Logout</a></li>
+=======
+            <li><a href="announcement.html" id="announcementsLink">📢 Announcements</a></li>
+            <li><a href="teacher_setting.html" id="settingsLink">⚙️ Settings</a></li>
+            <li><a href="index.html" id="logoutLink">🚪 Logout</a></li>
+>>>>>>> a1b4661b83fa179d26b001f085c6bea3f8738fb3
         </ul>
     </nav>
 
     <main class="main-content">
-        <section id="dashboardSection" class="dashboard-section active-section">
+        <section id="dashboardSection" class="dashboard-section">
             <h1 class="section-title">Teacher Dashboard</h1>
-
             <div class="timestamp">
-                <p id="attendanceTime">📅 Date & Time: Not marked yet</p>
+                <p id="attendanceTime">📅 Loading Date & Time...</p>
             </div>
 
             <div class="dashboard-stats">
@@ -41,9 +48,8 @@
                     <h3>Total Students</h3>
                     <div class="stat-number total-students-num">50</div>
                 </div>
-
                 <div class="stat-card today-attendance-card">
-                    <h3>Today Attendance</h3>
+                    <h3>Today's Attendance</h3>
                     <div class="attendance-summary">
                         <div class="attendance-item present">
                             <span>Present</span>
@@ -55,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="stat-card alert-card">
                     <h3>Alert</h3>
                     <h4>Low Attendance</h4>
@@ -72,10 +77,18 @@
                     <small>Take a photo or upload (JPG, JPEG, PNG)</small>
                 </div>
             </div>
+
+            <div class="ai-summary-card">
+                <h3>AI Attendance Summary</h3>
+                <div id="ai-summary-text">
+                    Click "Summarize Attendance" to get a smart attendance summary.
+                </div>
+                <button id="summarizeBtn">Summarize Attendance</button>
+            </div>
         </section>
 
         <section id="manualAttendanceSection" class="manual-attendance-section hidden">
-            <h2 class="section-title">Mark Attendance (Manually)</h2>
+            <h2 class="section-title">Mark Attendance Manually</h2>
             <div class="manual-attendance-table-container">
                 <table>
                     <caption>Quickly mark attendance for individual students</caption>
@@ -103,7 +116,7 @@
                                 <label><input type="radio" name="Nirmal" value="Absent" /> Absent</label>
                             </td>
                         </tr>
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </section>
@@ -121,18 +134,52 @@
             <p>Content for Reports goes here...</p>
         </section>
         <section id="announcementsSection" class="content-section hidden">
+<<<<<<< HEAD
             <h2 class="section-title">Announcements</h2>
             <p>Content for Announcements goes here...</p>
         </section>
         <section id="settingsSection" class="content-section hidden">
             <h2 >Settings</h2>
             <p>Content for Settings goes here...</p>
+=======
+            <h2 class="section-title">Class Announcements</h2>
+
+            <div class="announcement-form-card">
+                <h3>Add New Announcement</h3>
+                <form id="announcementForm">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required placeholder="E.g., Class Cancelled" />
+
+                    <label for="message">Message</label>
+                    <textarea id="message" required placeholder="Enter your announcement details here..."></textarea>
+
+                    <button type="submit">Post Announcement</button>
+                </form>
+            </div>
+
+            <div class="announcement-list">
+                <article class="announcement-item-card">
+                    <h3>Special Seminar</h3>
+                    <p>A guest lecture on <strong>Artificial Intelligence</strong> will be conducted in the MPH hall by
+                        <strong>RP Yadav Sir</strong> on <strong>25th Sept, 12:00 PM</strong>.</p>
+                    <div class="meta">
+                        <p class="small">Posted on: 25/09/2025</p>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </article>
+            </div>
+>>>>>>> a1b4661b83fa179d26b001f085c6bea3f8738fb3
         </section>
 
+        <section id="settingsSection" class="content-section hidden">
+            <h2 class="section-title">Settings</h2>
+            <p>Content for Settings goes here...</p>
+        </section>
     </main>
 
     <div id="subjectModal" class="modal-overlay hidden">
         <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
             <h3>Select Subject</h3>
             <select id="subjectSelect">
                 <option disabled selected>-- Choose Subject --</option>
@@ -140,9 +187,35 @@
                 <option value="Science">Science</option>
                 <option value="History">History</option>
             </select>
-            <button id="continueSubjectBtn" class="close-btn">Continue</button>
+            <button id="continueSubjectBtn" class="close-btn" >Continue</button>
         </div>
     </div>
 
-    <script src="teacher-dasboard.js"></script> </body>
+    <div id="logoutModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h2>Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="button-container">
+                <button id="confirmLogoutBtn" class="logout-button">Logout</button>
+                <button id="cancelLogoutBtn" class="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer-bottom">
+        <div class="footer-content">
+                <a href="#">About us</a>
+                <a href="#">Help</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <footer class="secondary-footer">
+        <div class="footer-content2">
+            <p class="copyright">&copy; 2025 Smart Attendance. All Rights Reserved.</p>
+        </div>
+    <script src="teacher-dasboard.js"></script>
+
+</body>
+
 </html>
