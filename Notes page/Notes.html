@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI & ML Subject Notes</title>
+</head>
+<body>
+  <h1>AI & ML Subject Notes Upload</h1>
+
+  <form action="#" method="post" enctype="multipart/form-data">
+    <!-- Subject Name -->
+    <label for="subject">Select Subject:</label>
+    <select name="subject" id="subject" required>
+      <option value="">--Choose Subject--</option>
+      <option value="DLNN">DL & NN (Deep Learning & Neural Networks)</option>
+      <option value="AML">AML (Advance Machine Learning)</option>
+      <option value="CC">CC (Cloud Computing)</option>
+      <option value="IoT">IoT (Internet of Things)</option>
+      <option value="WAD">WAD (Web Application Development)</option>
+    </select>
+    <br><br>
+
+    <!-- Note -->
+    <label for="note">Write Note:</label><br>
+    <textarea name="note" id="note" rows="5" cols="40" placeholder="Write your notes here..." required></textarea>
+    <br><br>
+
+    <!-- File Upload -->
+    <label for="file">Upload File:</label>
+    <input type="file" name="file" id="file" required>
+    <br><br>
+
+    <!-- Submit -->
+    <input type="submit" value="Save Note">
+  </form>
+
+</body>
+</html>
