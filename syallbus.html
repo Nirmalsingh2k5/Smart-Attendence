@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9fc; margin: 0; padding: 0; }
+    .content { padding: 20px; }
+    .form-box { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .form-box input, .form-box button { margin: 5px 0; padding: 10px; width: 100%; border-radius: 8px; border: 1px solid #ddd; }
+    .form-box button { background: #6a5acd; color: #fff; border: none; cursor: pointer; }
+    .course { margin-bottom: 20px; }
+    .course h2 { background: #eef0ff; padding: 10px; border-radius: 8px; }
+    .subject { background: #fff; margin: 10px 0; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .subject h3 { margin: 0; color: #333; }
+    .sem-tag { color: #6a5acd; font-size: 0.9em; }
+    .btns { margin-top: 10px; }
+    .btns a, .btns button { padding: 6px 12px; border-radius: 6px; margin-right: 8px; text-decoration: none; font-size: 14px; }
+    .view-btn { background: #6a5acd; color: #fff; }
+    .delete-btn { background: #ff4d4d; color: #fff; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main class="content">
+    
+    <!-- Insert new subject -->
+    <div class="form-box">
+      <h3>➕ Insert New Subject</h3>
+      <input type="text" id="courseName" placeholder="Course (e.g., AI & ML)">
+      <input type="text" id="subjectName" placeholder="Subject (e.g., Machine Learning)">
+      <input type="text" id="semester" placeholder="Semester (e.g., Sem IV)">
+      <input type="file" id="fileUpload" accept=".pdf,.doc,.docx">
+      <button onclick="insertSubject()">Insert</button>
+    </div>
+
+    <!-- Courses -->
+    <div id="courseList"></div>
+
+  </main>
+
+  <script>
+    function insertSubject() {
+      const courseName = document.getElementById("courseName").value.trim();
+      const subjectName = document.getElementById("subjectName").value.trim();
+      const semester = document.getElementById("semester").value.trim();
+      const fileInput = document.getElementById("fileUpload");
+      const file = fileInput.files[0];
+
+      if (!courseName || !subjectName || !semester || !file) {
+        alert("Please fill all fields and upload a file!");
+        return;
+      }
+
+      let courseDiv = document.querySelector(`[data-course='${courseName}']`);
+      if (!courseDiv) {
+        courseDiv = document.createElement("div");
+        courseDiv.classList.add("course");
+        courseDiv.setAttribute("data-course", courseName);
+        courseDiv.innerHTML = `<h2>${courseName}</h2>`;
+        document.getElementById("courseList").appendChild(courseDiv);
+      }
+
+      const subjectDiv = document.createElement("div");
+      subjectDiv.classList.add("subject");
+      subjectDiv.innerHTML = `
+        <h3>${subjectName} <span class="sem-tag">(${semester})</span></h3>
+        <p><strong>File:</strong> ${file.name}</p>
+        <div class="btns">
+          <a href="#" class="view-btn">📄 View File</a>
+          <button class="delete-btn" onclick="deleteSubject(this)">🗑 Delete</button>
+        </div>
+      `;
+
+      courseDiv.appendChild(subjectDiv);
+
+      // Reset form
+      document.getElementById("courseName").value = "";
+      document.getElementById("subjectName").value = "";
+      document.getElementById("semester").value = "";
+      document.getElementById("fileUpload").value = "";
+    }
+
+    function deleteSubject(btn) {
+      const subjectDiv = btn.closest(".subject");
+      if (subjectDiv) subjectDiv.remove();
+    }
+  </script>
+</body>
+</html>
