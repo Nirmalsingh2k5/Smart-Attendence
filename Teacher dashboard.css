@@ -369,7 +369,7 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .sidebar {
-        width: 70px;
+        width: 100px;
     }
     .sidebar-title {
         display: none;
@@ -487,37 +487,62 @@ body {
     color: #f0eded;
 }
 /* --- Footer Styling --- */
+/* Base Styles for the Footer Elements */
+footer {
+    width: 100%; /* Ensures the footer spans the full width */
+    color: #0a0101; /* White text for better contrast on a typical dark footer */
+    font-family: Arial, sans-serif; /* A common, readable font */
+}
+
+/* Style for the Main Footer Section */
 .main-footer-bottom {
-    background-color: rgba(255, 255, 255, 0.8);; /* Matches sidebar color */
-    color: #000203;
-    padding: 20px 30px;
-    margin-left: 250px; /* Aligns with the main content area */
-    transition: margin-left 0.3s ease; /* For smooth transition with sidebar */
+    background-color: rgba(255, 255, 255, 0.8); /* Dark background color */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center the content if it's not strictly using flex/grid */
+    border-top: 1px solid #f8f2f2; /* Optional subtle top border */
 }
 
 .footer-content {
+    /* To arrange the links horizontally */
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center; /* Center the links group */
     align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    max-width: 1200px;
+    max-width: 1200px; /* Limit the width of the content container */
+    margin: 0 auto; /* Center the container itself */
+    padding: 0 15px; /* Horizontal padding for responsiveness */
+}
+
+.footer-content a {
+    color: #0a0a0a; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 15px; /* Spacing between links */
+    font-size: 16px;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+.footer-content a:hover {
+    color: #f30505; /* Lighter color on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style for the Secondary Footer (Copyright Bar) */
+.secondary-footer {
+    background-color: rgba(44, 62, 80, 0.85); /* Slightly darker background */
+    padding: 10px 0; /* Vertical padding */
+    text-align: center;
+}
+
+.footer-content2 {
+    max-width: 1200px; /* Match the max-width of the main content */
     margin: 0 auto;
-}
-
-.footer-links li a {
-    color: #000000;
-    text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #3498db; /* Highlight color from your sidebar links */
+    padding: 0 15px;
 }
 
 .copyright {
-    margin: 0;
-    font-size: 0.9em;
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 14px;
+    color: #eee9e9; /* Lighter color for copyright text */
 }
 
 /* Responsive adjustments for the footer */
