@@ -1,59 +1,85 @@
-/* General Styling */
+/* --- General Styling & Modern Look --- */
+* {
+    box-sizing: border-box;
+}
+
+/* === CHANGE 1: Body ko Flex Container Banaya Gaya Hai === */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #f4f7fb;
-  color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #eaf6ff 0%, #d0e9f8 100%);
+    color: #334756;
+    
+    /* Flexbox properties */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Body ko kam se kam screen jitna lamba banata hai */
 }
 
-/* Header */
+/* --- Frosted Glass Header --- */
 header {
-  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-  padding: 20px 0;
-  text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
+
 header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+    margin: 0;
+    font-size: 2.5rem;
+    color: #2c3e50;
 }
 
-/* Main Container */
+/* === CHANGE 2: Main Content ko Extra Space Lene Ko Kaha Gaya Hai === */
+/* NOTE: Yeh .container ke bajaye .main-content par lagana behtar hai, jaisa aapke HTML mein hai */
+.main-content {
+    flex-grow: 1; /* Yeh line main content ko bachi hui jagah lene ko kehti hai */
+}
+
+/* --- Main Content Card Styling --- */
 .container {
-  width: 80%;
-  margin: 30px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 85%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Section Headings */
+/* --- Typography & Content Styling --- */
 h2 {
-  color: #2c3e50;
-  margin-top: 20px;
+    color: #3498db;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
-/* Paragraphs */
 p {
-  margin: 10px 0;
+    margin: 15px 0;
+    color: #555;
 }
 
-/* Lists */
 ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
-ul li {
-  margin-bottom: 10px;
+    margin: 15px 0;
+    padding-left: 20px;
+    list-style-type: '✔️ ';
 }
 
-/* Footer */
+ul li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* === CHANGE 3: Footer ko Normal Kar Diya Gaya Hai (Fixed Hata Diya) === */
 footer {
-  text-align: center;
-  padding: 15px;
-  background: #2c3e50;
-  color: #fff;
-  margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: #ffffff;
+    /* position: fixed aur baaki properties yahan se hata di gayi hain */
 }

@@ -225,11 +225,12 @@ body {
     display: none;
 }
 
-/* AI Summary Card */
+/* AI Summary Card (FIXED) */
 .ai-summary-card {
-    margin: 36px auto 0 auto;
+    /* margin: 36px auto 0 auto; */ /* <-- This line was changed */
+    margin-top: 36px;               /* <-- New margin */
     padding: 38px 24px 30px 24px;
-    max-width: 480px;
+    /* max-width: 480px; */         /* <-- This line was REMOVED */
     background: linear-gradient(135deg, #fff6ff 70%, #f6e8fe 100%);
     border-radius: 20px;
     box-shadow: 0 4px 28px #a882cf23, 0 1.5px 0.5px #ede1ff;
@@ -556,4 +557,94 @@ footer {
         flex-direction: column-reverse; /* Stack items vertically */
         gap: 15px;
     }
+}
+/* --- Settings Page Styles --- */
+.settings-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.settings-card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 1.5em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.settings-card label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.settings-card input[type="text"],
+.settings-card input[type="email"],
+.settings-card input[type="tel"],
+.settings-card input[type="password"],
+.settings-card input[type="number"],
+.settings-card input[type="file"],
+.settings-card select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Important for padding and width */
+}
+
+.settings-card .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.settings-card input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+.settings-card .save-btn,
+.settings-card .danger-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.settings-card .save-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.settings-card .save-btn:hover {
+    background-color: #2980b9;
+}
+
+.settings-card .danger-btn {
+    background-color: #e74c3c;
+    color: white;
+    margin-left: 10px; /* Space between buttons */
+}
+
+.settings-card .danger-btn:hover {
+    background-color: #c0392b;
+}
+
+.settings-card .account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
