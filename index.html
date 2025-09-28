@@ -1,172 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-
 <head>
-=======
-  <head>
->>>>>>> 023169c42116eb1e25e432f69ea94a2a91bfc136
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Attendance System</title>
-    <link rel="stylesheet" href="home2.css" />
-    <style>
-<<<<<<< HEAD
-        .navbar {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            background: #d1d3d5;
-            color: rgb(28, 27, 27);
-            position: relative;
-        }
-
-        .logo {
-            font-size: 33px;
-            font-weight: bold;
-            flex: 1;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 50px;
-            margin: 400px;
-            padding: 0;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-links li a {
-            color: rgb(22, 21, 21);
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links li a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Attendance System</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Smart Attendance</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About_us.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="main-container">
-        <div class="sitelogo"> <img src="tab4.png" width="400"
-                alt="Blue and black icon of a person with a large checkmark overlay, representing attendance verification."
-                loading="lazy" style="margin-bottom: 200px;" /> </div>
-        <div class="container-card">
-            <div class="btn-container">
-                <h2 id="h2">Login as Teacher</h2>
-                <p>Login as a Teacher to manage classes and take attendance.</p> <a href="Teacher Login.html"
-                    class="btn">Login</a>
-            </div>
-            <div class="btn-container">
-                <h2 id="h22">Login as Student</h2>
-                <p>Login as a Student to check your attendance records.</p> <a href="Student Login.html"
-                    class="btn">Login</a>
-            </div>
-        </div>
-    </div>
-    <footer style="background:#d1d3d5; color:rgb(12, 12, 12); text-align:center; padding:15px; margin-top:30px;">
-        <p>&copy; 2025 Smart Attendance System. All rights reserved.</p>
-    </footer>
-</body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Smart Attendance</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#help">Help</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-=======
-      .navbar {
-        display: flex;
-        align-items: center;
-        padding: 16px;
-        background: #d1d3d5;
-        color: rgb(28, 27, 27);
-        position: relative;
-      }
-      .logo {
-        font-size: 33px;
-        font-weight: bold;
-        flex: 1;
-      }
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 50px;
-        margin: 400px;
-        padding: 0;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .nav-links li a {
-        color: rgb(22, 21, 21);
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-      .nav-links li a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo">Smart Attendance</div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="About_us.html">About</a></li>
-          <li><a href="help.html">Help</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="main-container">
-      <div class="sitelogo">
-        <img
-          src="tab4.png"
-          width="400"
-          alt="Blue and black icon of a person with a large checkmark overlay, representing attendance verification."
-          loading="lazy"
-          style="margin-bottom: 200px;"
-        />
-      
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <!-- Background Shapes -->
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <div class="hero-content">
+      <img src="tab4.png" alt="Attendance Logo" class="logo-img" />
+
+      <div class="tagline">
+        “Because <span class="highlight">Every Second</span> of Learning Matters!”
       </div>
+
       <div class="container-card">
         <div class="btn-container">
-          <h2 id="h2">Login as Teacher</h2>
-          <p>Login as a Teacher to manage classes and take attendance.</p>
+          <h2>Login as Teacher</h2>
+          <p>Manage classes and take attendance efficiently.</p>
           <a href="Teacher Login.html" class="btn">Login</a>
         </div>
         <div class="btn-container">
-          <h2 id="h22">Login as Student</h2>
-          <p>Login as a Student to check your attendance records.</p>
+          <h2>Login as Student</h2>
+          <p>Check your attendance records instantly.</p>
           <a href="Student Login.html" class="btn">Login</a>
         </div>
       </div>
     </div>
-    <footer
-      style="
-        background: #d1d3d5;
-        color: rgb(12, 12, 12);
-        text-align: center;
-        padding: 15px;
-        margin-top: 30px;
-      "
-    >
-      <p>&copy; 2025 Smart Attendance System. All rights reserved.</p>
-    </footer>
-  </body>
->>>>>>> 023169c42116eb1e25e432f69ea94a2a91bfc136
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Smart Attendance System</h2>
+        <p>
+          The <strong>Smart Attendance System</strong> is more than just an attendance tracker –
+          it’s a step toward a smarter, digital-first learning environment. Powered by AI
+          and automation, it removes manual errors, saves time, and provides instant
+          access to attendance data.
+        </p>
+        <p>
+          Teachers can effortlessly manage attendance, while students gain real-time
+          visibility into their records. With <span class="highlight">99% accuracy</span> and
+          intelligent reporting, our system helps schools and institutions focus more on
+          education, and less on paperwork.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="image/ai_attendance.png" alt="AI Attendance System" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 Smart Attendance System. All rights reserved.</p>
+  </footer>
+</body>
 </html>
