@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard | Smart Attendance</title>
+    <link rel="stylesheet" href="t-dashboard.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="profile">
+            <img src="tab4.png" alt="Smart Attendance Logo" class="profile-logo" />
+            <span class="app-name">Smart Attendance</span>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <h2 class="sidebar-title">Smart Attendance</h2>
+        <ul>
+            <li><a href="t-dashboard.html" id="dashboardLink" class="active">🏠 Dashboard</a></li>
+            <li><a href="#" id="attendanceLink">📋 Attendance</a></li>
+            <li><a href="#" id="studentsLink">👩‍🎓 Students</a></li>
+            <li><a href="#" id="classesLink">📚 Classes</a></li>
+            <li><a href="#" id="reportsLink">📝 Reports</a></li>
+            <li><a href="#" id="announcementsLink">📢 Announcements</a></li>
+            <li><a href="#" id="settingsLink">⚙️ Settings</a></li>
+            <li><a href="index.html" id="logoutLink">🚪 Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="dashboardSection" class="dashboard-section">
+            <h1 class="section-title">Teacher Dashboard</h1>
+            <div class="timestamp">
+                <p id="attendanceTime">📅 Loading Date & Time...</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card total-students-card">
+                    <h3>Total Students</h3>
+                    <div class="stat-number total-students-num">50</div>
+                </div>
+                <div class="stat-card today-attendance-card">
+                    <h3>Today's Attendance</h3>
+                    <div class="attendance-summary">
+                        <div class="attendance-item present">
+                            <span>Present</span>
+                            <div class="stat-number present-num">36</div>
+                        </div>
+                        <div class="attendance-item absent">
+                            <span>Absent</span>
+                            <div class="stat-number absent-num">14</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card alert-card">
+                    <h3>Alert</h3>
+                    <h4>Low Attendance</h4>
+                    <div class="stat-number low-attendance-num">6</div>
+                </div>
+            </div>
+
+            <div class="camera-section">
+                <h2>Take Attendance via Camera</h2>
+                <div class="camera-upload-area">
+                    <img id="preview" alt="Your photo will appear here" class="camera-preview" />
+                    <label for="cameraInput" class="camera-btn">📷 Open Camera</label>
+                    <input type="file" id="cameraInput" accept="image/*" capture="user" />
+                    <small>Take a photo or upload (JPG, JPEG, PNG)</small>
+                </div>
+            </div>
+
+            <div class="ai-summary-card">
+                <h3>AI Attendance Summary</h3>
+                <div id="ai-summary-text">
+                    Click "Summarize Attendance" to get a smart attendance summary.
+                </div>
+                <button id="summarizeBtn">Summarize Attendance</button>
+            </div>
+        </section>
+
+        <section id="manualAttendanceSection" class="manual-attendance-section hidden">
+            <h2 class="section-title">Mark Attendance Manually</h2>
+            <div class="manual-attendance-table-container">
+                <table>
+                    <caption>Quickly mark attendance for individual students</caption>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Aryan Sharma</td>
+                            <td>
+                                <label><input type="radio" name="Aryan" value="Present" /> Present</label>
+                                <label><input type="radio" name="Aryan" value="Absent" /> Absent</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Nirmal Singh</td>
+                            <td>
+                                <label><input type="radio" name="Nirmal" value="Present" /> Present</label>
+                                <label><input type="radio" name="Nirmal" value="Absent" /> Absent</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="studentsSection" class="content-section hidden">
+            <h2 class="section-title">Students List</h2>
+            <p>Content for Students goes here...</p>
+        </section>
+        <section id="classesSection" class="content-section hidden">
+            <h2 class="section-title">Classes Management</h2>
+            <p>Content for Classes goes here...</p>
+        </section>
+        <section id="reportsSection" class="content-section hidden">
+            <h2 class="section-title">Attendance Reports</h2>
+            <p>Content for Reports goes here...</p>
+        </section>
+        <section id="announcementsSection" class="content-section hidden">
+            <h2 class="section-title">Announcements</h2>
+            <p>Content for Announcements goes here...</p>
+        </section>
+        <section id="settingsSection" class="content-section hidden">
+            <h2 class="section-title">Settings</h2>
+            <main class="main-content">
+      <h1 class="section-title">⚙️ Teacher Settings</h1>
+
+      <!-- Profile Settings -->
+      <form
+        class="settings-card"
+        action="save_profile.php"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <h3>👤 Profile Settings</h3>
+        <label
+          >Full Name <input type="text" name="teacherName" required
+        /></label>
+        <label>Email <input type="email" name="teacherEmail" required /></label>
+        <label>Phone <input type="tel" name="teacherPhone" /></label>
+        <label
+          >Profile Picture
+          <input type="file" name="profilePic" accept="image/*"
+        /></label>
+        <button type="submit" class="save-btn">Save Changes</button>
+      </form>
+
+      <!-- Class Preferences -->
+      <form class="settings-card" action="save_class.php" method="POST">
+        <h3>📚 Class & Subject Preferences</h3>
+        <label
+          >Default Class
+          <select name="defaultClass">
+            <option>AIML</option>
+            <option>CS sec A/option></option>
+            <option>CS sec B</option>
+          </select>
+        </label>
+        <label
+          >Default Subject
+          <select name="defaultSubject">
+            <option>Math</option>
+            <option>Science</option>
+            <option>English</option>
+          </select>
+        </label>
+        <button type="submit" class="save-btn">Update Preferences</button>
+      </form>
+
+      <!-- Attendance Preferences -->
+      <form class="settings-card" action="save_attendance.php" method="POST">
+        <h3>📋 Attendance Preferences</h3>
+        <label
+          ><input type="checkbox" name="lateAsAbsent" /> Mark late students as
+          Absent</label
+        >
+        <label
+          ><input type="checkbox" name="autoSummary" /> Auto-generate daily
+          summary</label
+        >
+        <label
+          >Minimum Attendance Alert (%)
+          <input
+            type="number"
+            name="minAttendance"
+            value="75"
+            min="0"
+            max="100"
+          />
+        </label>
+        <button type="submit" class="save-btn">Save Attendance Rules</button>
+      </form>
+
+      <!-- Notifications -->
+      <form class="settings-card" action="save_notifications.php" method="POST">
+        <h3>🔔 Notifications</h3>
+        <label
+          ><input type="checkbox" name="notifyEmail" /> Email absentees’
+          parents</label
+        >
+        <label
+          ><input type="checkbox" name="notifySMS" /> SMS alerts for low
+          attendance</label
+        >
+        <label
+          ><input type="checkbox" name="notifyWeekly" /> Weekly attendance
+          report</label
+        >
+        <button type="submit" class="save-btn">
+          Save Notification Settings
+        </button>
+      </form>
+
+      <!-- System Preferences -->
+      <form class="settings-card" action="save_system.php" method="POST">
+        <h3>🌐 System Preferences</h3>
+        <label
+          >Theme
+          <select name="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label
+          >Language
+          <select name="language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </label>
+        <label
+          >Time Format
+          <select name="timeFormat">
+            <option value="12">12 Hour</option>
+            <option value="24">24 Hour</option>
+          </select>
+        </label>
+        <button type="submit" class="save-btn">Apply Preferences</button>
+      </form>
+
+      <!-- Security -->
+      <form class="settings-card" action="change_password.php" method="POST">
+        <h3>🔑 Security</h3>
+        <label
+          >Current Password <input type="password" name="currentPass" required
+        /></label>
+        <label
+          >New Password <input type="password" name="newPass" required
+        /></label>
+        <label
+          >Confirm Password <input type="password" name="confirmPass" required
+        /></label>
+        <button type="submit" class="save-btn">Change Password</button>
+      </form>
+
+      <!-- Account Management -->
+      <form class="settings-card" action="account_actions.php" method="POST">
+        <h3>⚠️ Account Management</h3>
+        <button type="submit" name="downloadProfile" class="save-btn">
+          📥 Download Profile Data
+        </button>
+        <button type="submit" name="resetDefaults" class="danger-btn">
+          🔄 Reset Defaults
+        </button>
+        <button type="submit" name="deleteAccount" class="danger-btn">
+          Delete Account
+        </button>
+      </form>
+    </main>
+        </section>
+
+        
+    <div id="subjectModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h3>Select Subject</h3>
+            <select id="subjectSelect">
+                <option disabled selected>-- Choose Subject --</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+            <button id="continueSubjectBtn" class="close-btn" >Continue</button>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h2>Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="button-container">
+                <button id="confirmLogoutBtn" class="logout-button">Logout</button>
+                <button id="cancelLogoutBtn" class="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer-bottom">
+        <div class="footer-content">
+                <a href="#">About us</a>
+                <a href="#">Help</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <footer class="secondary-footer">
+        <div class="footer-content2">
+            <p class="copyright">&copy; 2025 Smart Attendance. All Rights Reserved.</p>
+        </div>
+    <script src="t-dashboard.js"></script>
+
+</body>
+
+</html>
